@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest'
+        };
+      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awards &amp; Recognition</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { 'brand': '#0f3557', 'brand-dark': '#0a2740', 'brand-light': '#f4f6f8', 'accent': '#c9973f', 'ink': '#0f3557' } } }
+    };
+  </script>
+  <style>
+    :root {
+      --font-brand: 'Avenir Next', 'Avenir', 'Nunito Sans', 'Helvetica Neue', Arial, 'PingFang HK', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      --font-hero: 'Maven Pro', var(--font-brand);
+    }
+    html, body { font-family: var(--font-brand); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    h1, h2, h3, h4, #hero, .font-hero { font-family: var(--font-hero); }
+    h1, h2 { font-weight: 600; letter-spacing: -0.02em; }
+    h3, h4 { font-weight: 600; }
+    #hero h1 { font-weight: 500; letter-spacing: -0.025em; line-height: 1.04; }
+    #hero p { font-weight: 400; }
+
+    #header { transition: background-color .4s ease, box-shadow .4s ease, padding .4s ease; }
+    #header .hdr-text { color: #fff; transition: color .3s ease; }
+    #header .hdr-logo { filter: brightness(0) invert(1); height: 3rem; width: auto; transition: filter .3s ease, height .35s ease; }
+    @media (min-width: 1280px) { #header .hdr-logo { height: 4rem; } }
+    #header .hdr-tag { margin-top: 0.35rem; white-space: nowrap; }
+    #header .hdr-line { background: rgba(255,255,255,.25); }
+    #header.scrolled { background: #fff; box-shadow: 0 10px 30px -18px rgba(15,53,87,.35); }
+    #header.scrolled .hdr-text { color: #0f3557; }
+    #header.scrolled .hdr-logo { filter: none; height: 2.75rem; }
+    #header.scrolled .hdr-line { background: rgba(15,53,87,.15); }
+    .nav-link { position: relative; white-space: nowrap; }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: #c9973f; transition: width .3s ease; }
+    .nav-link:hover::after, .nav-link.is-current::after { width: 100%; }
+
+    .hero-img { animation: kenburns 12s ease-out forwards; }
+    @keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+    .rise { opacity: 0; transform: translateY(30px); animation: rise 1.1s cubic-bezier(.22,1,.36,1) forwards; }
+    .rise-2 { animation-delay: .15s; } .rise-3 { animation-delay: .3s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    .scroll-dot { animation: scrolldot 2s ease-in-out infinite; }
+    @keyframes scrolldot { 0% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(44px); opacity: 0; } 100% { opacity: 0; } }
+
+    .arrow-link .arrow-line { width: 2.5rem; transition: width .35s ease; }
+    .arrow-link:hover .arrow-line { width: 4rem; }
+
+    .ledger-row:hover .ledger-num { color: #c9973f; }
+    .ledger-row:hover .ledger-arrow { background: #c9973f; color: #fff; border-color: #c9973f; transform: translateX(4px); }
+    .ledger-arrow i { transform: rotate(-45deg); transition: transform .3s ease; }
+    .ledger-row:hover .ledger-arrow i { transform: rotate(0); }
+
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee { animation: marquee 34s linear infinite; }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-white text-ink overflow-x-hidden selection:bg-accent selection:text-white">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 py-2.5">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 flex items-center justify-between">
+      <a href="11-Crown%20Sky%20Engineering%20-%20Home%20E.html" class="hdr-brand flex flex-col items-center shrink-0">
+        <img src="images/crown-sky-logo.png" alt="Crown Sky" class="hdr-logo">
+        <span class="hdr-tag text-[10px] xl:text-[11px] font-bold tracking-[0.18em] uppercase text-accent">Engineering Limited</span>
+      </a>
+      <nav class="hidden xl:flex items-center gap-3 2xl:gap-5">
+        <div class="relative group">
+        <a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap inline-flex items-center gap-1.5 py-2 is-current">About Crown Sky <i class="fa-solid fa-chevron-down text-[9px] opacity-70 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></i></a>
+        <div class="absolute left-0 top-full pt-2 w-72 opacity-0 invisible pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 transition-all duration-200 z-[70]">
+          <div class="bg-white rounded-sm shadow-xl border border-brand/10 py-2">
+            <a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">About Us</a>
+            <a href="1-Crown%20Sky%20Engineering%20-%20About.html#values" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Our Core Values</a>
+            <a href="1-Crown%20Sky%20Engineering%20-%20About.html#leadership" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Message from Management</a>
+            <a href="10-Crown%20Sky%20Engineering%20-%20Leader.html" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Our Leadership</a>
+            <a href="2-Crown%20Sky%20Engineering%20-%20Awards.html" class="block px-5 py-2.5 text-[13px] font-semibold text-brand bg-brand-light">Awards &amp; Recognition</a>
+            <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html#partners" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Strategic Partners</a>
+            <a href="3-Crown%20Sky%20Engineering%20-%20Compan.html" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Company Milestones</a>
+          </div>
+        </div>
+      </div>
+        <a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Our Services</a>
+        <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Our Projects</a>
+        <a href="12-Crown%20Sky%20Engineering%20-%20News%20a.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">News &amp; Insights</a>
+        <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Sustainability</a>
+        <a href="8-Crown%20Sky%20Engineering%20-%20Career.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Join Our Team</a>
+        <span class="hdr-line w-px h-5 shrink-0"></span>
+        <div class="hdr-text text-[12px] font-bold tracking-widest flex items-center gap-2 shrink-0"><a href="#" class="text-accent">EN</a><span class="opacity-40">/</span><a href="#" class="opacity-70 hover:opacity-100">繁</a></div>
+        <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="bg-accent text-white px-4 2xl:px-5 py-2.5 rounded-sm text-[12px] 2xl:text-[13px] font-bold hover:bg-brand transition-colors whitespace-nowrap shrink-0">Contact Us</a>
+      </nav>
+      <button id="menu-btn" class="xl:hidden hdr-text w-11 h-11 inline-flex items-center justify-center text-xl shrink-0" aria-label="Open menu"><i class="fa-solid fa-bars-staggered"></i></button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark text-white px-6 py-6 hidden flex-col">
+    <div class="flex items-center justify-between">
+      <span class="text-xl font-extrabold tracking-tighter">CROWN SKY</span>
+      <button id="menu-close" class="text-2xl" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="mt-6 flex-1 overflow-y-auto flex flex-col font-hero pb-8" aria-label="Mobile">
+      <div class="border-b border-white/10 pb-3 mb-2">
+        <p class="pt-1 text-[11px] font-bold uppercase tracking-[0.22em] text-accent">On this page</p>
+        <ul class="mt-1">
+          <li><a href="#iso-ledger" class="mobile-link block py-2 text-[15px] text-white/80">ISO Systems</a></li>
+          <li><a href="#cpas" class="mobile-link block py-2 text-[15px] text-white/80">Performance (CPAS)</a></li>
+          <li><a href="#energy" class="mobile-link block py-2 text-[15px] text-white/80">Energy</a></li>
+          <li><a href="#wellbeing" class="mobile-link block py-2 text-[15px] text-white/80">People</a></li>
+          <li><a href="#certificates" class="mobile-link block py-2 text-[15px] text-white/80">Certificates</a></li>
+        </ul>
+      </div>
+      <div class="border-b border-white/10">
+        <button type="button" class="nav-acc w-full flex items-center justify-between py-3.5 text-left text-lg font-semibold text-accent" aria-expanded="true">
+          <span>About Crown Sky</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform rotate-180"></i>
+        </button>
+        <div class="nav-acc-panel flex flex-col pb-3 pl-4 ml-1 border-l border-accent/40">
+          <a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="mobile-link block py-2 text-[15px] text-white/75">About Us</a>
+          <a href="1-Crown%20Sky%20Engineering%20-%20About.html#values" class="mobile-link block py-2 text-[15px] text-white/75">Our Core Values</a>
+          <a href="1-Crown%20Sky%20Engineering%20-%20About.html#leadership" class="mobile-link block py-2 text-[15px] text-white/75">Message from Management</a>
+          <a href="10-Crown%20Sky%20Engineering%20-%20Leader.html" class="mobile-link block py-2 text-[15px] text-white/75">Our Leadership</a>
+          <a href="2-Crown%20Sky%20Engineering%20-%20Awards.html" class="mobile-link block py-2 text-[15px] text-accent font-semibold">Awards &amp; Recognition</a>
+          <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html#partners" class="mobile-link block py-2 text-[15px] text-white/75">Strategic Partners</a>
+          <a href="3-Crown%20Sky%20Engineering%20-%20Compan.html" class="mobile-link block py-2 text-[15px] text-white/75">Company Milestones</a>
+        </div>
+      </div>
+      <a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Our Services</a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Our Projects</a>
+      <a href="12-Crown%20Sky%20Engineering%20-%20News%20a.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">News &amp; Insights</a>
+      <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Sustainability</a>
+      <a href="8-Crown%20Sky%20Engineering%20-%20Career.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Join Our Team</a>
+      <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-accent">Contact Us</a>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" class="relative h-[640px] md:h-[760px] overflow-hidden bg-brand-dark">
+    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_1c0aa53433_f71f10bae6574788.png" alt="Crown Sky office" class="hero-img absolute inset-0 w-full h-full object-cover opacity-60">
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-brand-dark/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/85 via-brand-dark/30 to-transparent"></div>
+
+    <div class="relative z-10 h-full w-full max-w-[1440px] mx-auto px-6 lg:px-14 flex flex-col justify-end pb-14 md:pb-20">
+      <nav class="rise flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-8" aria-label="Breadcrumb">
+        <a href="11-Crown%20Sky%20Engineering%20-%20Home%20E.html" class="hover:text-white">Home</a><i class="fa-solid fa-chevron-right text-[9px]"></i><a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="hover:text-white">Company</a><i class="fa-solid fa-chevron-right text-[9px]"></i><span class="text-accent">Awards &amp; Recognition</span>
+      </nav>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-8">
+          <span class="rise inline-flex items-center gap-4 text-accent font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-7"><span class="w-10 h-px bg-accent"></span>Awards &amp; Recognition</span>
+          <h1 class="rise rise-2 text-5xl sm:text-6xl md:text-7xl xl:text-[5.5rem] text-white">Standards we <span class="text-accent">earn</span>,<br>not just meet.</h1>
+        </div>
+        <div class="lg:col-span-4 rise rise-3">
+          <p class="text-white/75 text-base md:text-lg leading-relaxed max-w-md">Every certificate on this page was audited, tested and renewed in the field — proof that our commitment to quality, safety, environment and people runs deeper than policy.</p>
+        </div>
+      </div>
+
+      <div id="hero-stats" class="mt-12 md:mt-16 pt-6 border-t border-white/15 flex items-end justify-between gap-8">
+        <div class="flex-1 grid grid-cols-3 gap-4 md:gap-8 max-w-3xl">
+          <div><div class="text-3xl md:text-4xl text-white font-hero" style="font-weight: 600;">3<span class="text-accent">×</span></div><div class="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-white/50 mt-2">ISO Systems</div></div>
+          <div><div class="text-3xl md:text-4xl text-white font-hero" style="font-weight: 600;">9</div><div class="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-white/50 mt-2">Certifications &amp; Charters</div></div>
+          <div><div class="text-3xl md:text-4xl text-white font-hero" style="font-weight: 600;">0</div><div class="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-white/50 mt-2">Lost-time Accidents Target</div></div>
+        </div>
+        <a href="#iso-ledger" class="hidden md:flex flex-col items-center gap-3 text-white/60 hover:text-white">
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase">Scroll</span>
+          <span class="relative w-px h-14 bg-white/25 overflow-hidden"><span class="scroll-dot absolute top-0 left-0 w-px h-3 bg-accent"></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter nav strip -->
+  <section id="chapters" class="bg-white border-b border-brand/10">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 flex gap-x-10 gap-y-3 overflow-x-auto no-scrollbar py-6 text-xs font-bold tracking-widest uppercase">
+      <a href="#iso-ledger" class="shrink-0 flex items-center gap-3 text-brand/60 hover:text-brand"><span class="text-accent">01</span>ISO Systems</a>
+      <a href="#cpas" class="shrink-0 flex items-center gap-3 text-brand/60 hover:text-brand"><span class="text-accent">02</span>Performance</a>
+      <a href="#energy" class="shrink-0 flex items-center gap-3 text-brand/60 hover:text-brand"><span class="text-accent">03</span>Energy</a>
+      <a href="#wellbeing" class="shrink-0 flex items-center gap-3 text-brand/60 hover:text-brand"><span class="text-accent">04</span>People</a>
+      <a href="#certificates" class="shrink-0 flex items-center gap-3 text-brand/60 hover:text-brand"><span class="text-accent">05</span>Certificates</a>
+    </div>
+  </section>
+
+  <!-- 01 ISO ledger -->
+  <section id="iso-ledger" class="py-24 md:py-32 bg-white scroll-mt-20">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Chapter 01</span>
+        <h2 class="text-4xl md:text-5xl text-brand leading-[1.1]">The Integrated Management Trio.</h2>
+        <p class="text-ink/65 text-lg leading-relaxed mt-6">Quality, environment and occupational safety are audited as one integrated system — so nothing is optimised at the expense of anything else.</p>
+        <div class="mt-10 inline-flex items-center gap-3 bg-brand-light px-5 py-3 rounded-sm">
+          <i class="fa-solid fa-rotate text-accent"></i>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand">Annual surveillance audits</span>
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        <ul class="border-t border-brand/15">
+          <li>
+      <a href="#" class="ledger-row group grid grid-cols-12 items-center gap-6 py-9 border-b border-brand/15">
+              <div class="col-span-12 md:col-span-4 ledger-num text-6xl md:text-7xl text-brand font-hero transition-colors" style="font-weight: 600;">9001</div>
+              <div class="col-span-10 md:col-span-6">
+                <div class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent mb-2">ISO 9001:2015</div>
+                <h3 class="text-2xl text-brand">Quality Management System</h3>
+                <p class="text-ink/60 mt-2 leading-relaxed">From design to handover, every MVAC and A&amp;A project follows a documented, measurable quality process.</p>
+                <div class="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs font-bold text-ink/55"><span><i class="fa-regular fa-calendar-check text-accent mr-1.5"></i>Last audited · Mar 2026</span><span><i class="fa-regular fa-hourglass-half text-accent mr-1.5"></i>Valid until · Mar 2027</span></div>
+              </div>
+              <div class="col-span-2 flex justify-end"><span class="ledger-arrow w-12 h-12 rounded-full border border-brand/20 text-brand flex items-center justify-center transition-all"><i class="fa-solid fa-arrow-right"></i></span></div>
+            </a>
+          </li>
+          <li>
+      <a href="#" class="ledger-row group grid grid-cols-12 items-center gap-6 py-9 border-b border-brand/15">
+              <div class="col-span-12 md:col-span-4 ledger-num text-6xl md:text-7xl text-brand font-hero transition-colors" style="font-weight: 600;">14001</div>
+              <div class="col-span-10 md:col-span-6">
+                <div class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent mb-2">ISO 14001:2015</div>
+                <h3 class="text-2xl text-brand">Environmental Management System</h3>
+                <p class="text-ink/60 mt-2 leading-relaxed">Site waste, noise and emissions are planned, monitored and reduced throughout construction.</p>
+                <div class="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs font-bold text-ink/55"><span><i class="fa-regular fa-calendar-check text-accent mr-1.5"></i>Last audited · Mar 2026</span><span><i class="fa-regular fa-hourglass-half text-accent mr-1.5"></i>Valid until · Mar 2027</span></div>
+              </div>
+              <div class="col-span-2 flex justify-end"><span class="ledger-arrow w-12 h-12 rounded-full border border-brand/20 text-brand flex items-center justify-center transition-all"><i class="fa-solid fa-arrow-right"></i></span></div>
+            </a>
+          </li>
+          <li>
+      <a href="#" class="ledger-row group grid grid-cols-12 items-center gap-6 py-9 border-b border-brand/15">
+              <div class="col-span-12 md:col-span-4 ledger-num text-6xl md:text-7xl text-brand font-hero transition-colors" style="font-weight: 600;">45001</div>
+              <div class="col-span-10 md:col-span-6">
+                <div class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent mb-2">ISO 45001:2018</div>
+                <h3 class="text-2xl text-brand">Occupational Health &amp; Safety</h3>
+                <p class="text-ink/60 mt-2 leading-relaxed">Systematic risk control that protects every engineer, supervisor and worker on site.</p>
+                <div class="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs font-bold text-ink/55"><span><i class="fa-regular fa-calendar-check text-accent mr-1.5"></i>Last audited · Mar 2026</span><span><i class="fa-regular fa-hourglass-half text-accent mr-1.5"></i>Valid until · Mar 2027</span></div>
+              </div>
+              <div class="col-span-2 flex justify-end"><span class="ledger-arrow w-12 h-12 rounded-full border border-brand/20 text-brand flex items-center justify-center transition-all"><i class="fa-solid fa-arrow-right"></i></span></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 CPAS -->
+  <section id="cpas" class="py-24 md:py-32 bg-brand-light scroll-mt-20">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+      <div id="cpas-media" class="lg:col-span-7 relative">
+        <button type="button" class="cert-open group block w-full bg-white rounded-sm p-4 md:p-6 shadow-sm text-left" data-src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2F5fb62246-bf09-4361-be6d-a8f696aa1666.png" data-title="CPAS Certificate" aria-label="View CPAS certificate">
+          <span class="block overflow-hidden rounded-sm aspect-[1.414/1] bg-brand-light">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2F5fb62246-bf09-4361-be6d-a8f696aa1666.png" alt="CPAS certificate" class="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-700">
+          </span>
+          <span class="absolute top-8 right-8 w-11 h-11 rounded-full bg-brand text-white flex items-center justify-center group-hover:bg-accent transition-colors"><i class="fa-solid fa-expand text-sm"></i></span>
+        </button>
+        <div class="absolute -bottom-8 right-6 md:right-10 bg-brand text-white px-8 py-6 rounded-sm shadow-2xl">
+          <div class="text-4xl md:text-5xl text-accent leading-none font-hero" style="font-weight: 600;">CPAS</div>
+          <div class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/60 mt-3">CIC Recognised</div>
+        </div>
+      </div>
+      <div id="cpas-copy" class="lg:col-span-5 pt-8 lg:pt-0">
+        <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Chapter 02 · Performance</span>
+        <h2 class="text-4xl md:text-5xl text-brand leading-[1.1]">Contractors' Performance Assessment Scoring System</h2>
+        <p class="text-ink/70 text-lg leading-relaxed mt-6">Recognised under the Construction Industry Council's scoring system, reflecting consistently strong ratings for site safety, workmanship and programme delivery.</p>
+        <ul class="mt-8 border-t border-brand/10">
+          <li class="flex items-center justify-between py-4 border-b border-brand/10"><span class="font-semibold text-brand flex items-center gap-3"><i class="fa-solid fa-helmet-safety text-accent w-4"></i>Site Safety</span><span class="text-accent text-sm font-bold">01</span></li>
+          <li class="flex items-center justify-between py-4 border-b border-brand/10"><span class="font-semibold text-brand flex items-center gap-3"><i class="fa-solid fa-ruler-combined text-accent w-4"></i>Workmanship</span><span class="text-accent text-sm font-bold">02</span></li>
+          <li class="flex items-center justify-between py-4 border-b border-brand/10"><span class="font-semibold text-brand flex items-center gap-3"><i class="fa-solid fa-calendar-check text-accent w-4"></i>On Programme</span><span class="text-accent text-sm font-bold">03</span></li>
+        </ul>
+        <div class="flex flex-wrap gap-x-6 gap-y-1 mt-5 text-xs font-bold text-ink/55"><span><i class="fa-regular fa-calendar-check text-accent mr-1.5"></i>Last assessed · Q1 2026</span><span><i class="fa-regular fa-hourglass-half text-accent mr-1.5"></i>Reviewed quarterly</span></div>
+        <blockquote class="mt-10 pl-6 border-l-2 border-accent">
+          <p class="text-xl md:text-2xl text-brand leading-snug font-hero" style="font-weight: 500;">"A certificate is a snapshot. A performance score is a habit — earned site by site, day by day."</p>
+          <footer class="text-xs font-bold uppercase tracking-widest text-ink/55 mt-4">Otto Law, Managing Director</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Energy -->
+  <section id="energy" class="py-24 md:py-32 bg-white scroll-mt-20">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14">
+        <div class="lg:col-span-7">
+          <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Chapter 03 · Energy</span>
+          <h2 class="text-4xl md:text-6xl text-brand leading-[1.05]">Lighter footprint,<br>brighter sites.</h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="text-ink/65 text-lg leading-relaxed">Two charters that commit our offices and sites to lower energy use — from the lighting overhead to everyday habits.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <article id="charter-led" class="lg:col-span-7 relative overflow-hidden rounded-sm bg-brand-dark text-white min-h-[460px] flex flex-col justify-end p-8 md:p-12 group">
+          <img src="images/people/maint.png?v=3" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-1000">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/20"></div>
+          <div class="relative">
+            <span class="inline-flex items-center gap-2 bg-accent text-white text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-lightbulb"></i>Energy Pioneer</span>
+            <h3 class="text-3xl md:text-4xl mt-6 leading-tight">"No Incandescent Light Bulbs" Charter</h3>
+            <p class="text-white/70 mt-4 max-w-lg leading-relaxed">Traditional tungsten bulbs have been fully phased out across our offices and sites, replaced with high-efficiency LED lighting.</p>
+            <div class="mt-8 pt-6 border-t border-white/15 grid grid-cols-2 max-w-md">
+              <div class="pr-6 border-r border-white/15"><div class="text-3xl md:text-4xl text-accent font-hero" style="font-weight: 600;">100%</div><div class="text-[10px] uppercase tracking-[0.25em] text-white/50 font-bold mt-1">LED Adoption</div></div>
+              <div class="pl-6"><div class="text-2xl md:text-3xl font-hero whitespace-nowrap leading-[2.5rem] md:leading-[2.75rem]" style="font-weight: 600;">Office + Site</div><div class="text-[10px] uppercase tracking-[0.25em] text-white/50 font-bold mt-1">Coverage</div></div>
+            </div>
+          </div>
+        </article>
+
+        <article id="charter-energy" class="lg:col-span-5 rounded-sm bg-brand-light p-8 md:p-10 flex flex-col">
+          <div class="flex items-center justify-between">
+            <span class="w-14 h-14 rounded-sm bg-white text-accent flex items-center justify-center text-xl"><i class="fa-solid fa-bolt"></i></span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent">Signatory</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl text-brand mt-6">Energy Saving Charter</h3>
+          <p class="text-ink/65 mt-3 leading-relaxed">We commit to sensible indoor temperatures, efficient equipment and energy-aware habits that support Hong Kong's sustainability goals.</p>
+          <button type="button" class="cert-open group mt-auto pt-8 w-full text-left" data-src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Fd6481107-078e-4e68-961d-164c879c2017.png" data-title="Energy Saving Charter 2026" aria-label="View Energy Saving Charter 2026 certificate">
+            <span class="flex items-center gap-5 bg-white rounded-sm p-4 group-hover:shadow-lg transition-shadow">
+              <span class="w-20 shrink-0 aspect-[1/1.414] rounded-sm overflow-hidden border border-brand/10 bg-white">
+                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Fd6481107-078e-4e68-961d-164c879c2017.png" alt="Energy Saving Charter 2026 certificate" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              </span>
+              <span class="flex-1 min-w-0">
+                <span class="block text-[10px] font-bold uppercase tracking-[0.25em] text-accent">Certificate</span>
+                <span class="block font-bold text-brand mt-1">Energy Saving Charter 2026</span>
+                <span class="block text-xs text-ink/60 mt-1">Environment and Ecology Bureau · EMSD</span>
+                <span class="block text-xs font-bold text-emerald-700 mt-2"><i class="fa-solid fa-circle-check mr-1"></i>Valid until · Dec 2026</span>
+              </span>
+              <span class="w-10 h-10 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-colors"><i class="fa-solid fa-expand text-xs"></i></span>
+            </span>
+          </button>
+          <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="arrow-link inline-flex items-center gap-4 text-brand font-bold text-sm mt-8">Our sustainability approach <span class="arrow-line h-[2px] bg-accent"></span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 People -->
+  <section id="wellbeing" class="relative overflow-hidden bg-brand-dark text-white scroll-mt-20">
+    <img src="images/people/career.png?v=3" alt="" class="absolute inset-0 w-full h-full object-cover opacity-25">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/55"></div>
+    <div class="relative w-full max-w-[1440px] mx-auto px-6 lg:px-14 py-24 md:py-36 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+      <div id="wellbeing-copy" class="lg:col-span-6">
+        <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Chapter 04 · People</span>
+        <h2 class="text-4xl md:text-6xl leading-[1.05] mb-8">Safe sites start with <span class="text-accent">healthy minds.</span></h2>
+        <p class="text-white/70 text-lg leading-relaxed max-w-lg">Engineering is a demanding profession. These charters formalise how we look after the people behind every project — inclusion, mental health and a workplace where good moods are designed in.</p>
+      </div>
+      <div id="wellbeing-list" class="lg:col-span-5 lg:col-start-8">
+        <ul class="border-t border-white/15">
+          <li class="group flex items-start gap-6 py-8 border-b border-white/15">
+            <span class="w-14 h-14 shrink-0 rounded-sm bg-white/5 border border-white/15 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors"><i class="fa-solid fa-award"></i></span>
+            <div class="flex-1">
+              <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">A · Commendation</p>
+              <h3 class="text-xl mt-1">Harmony at Workplace</h3>
+              <p class="text-white/60 mt-2 text-sm leading-relaxed">Recognises an inclusive, respectful culture where diverse teams collaborate without barriers.</p>
+            </div>
+          </li>
+          <li class="group flex items-start gap-6 py-8 border-b border-white/15">
+            <span class="w-14 h-14 shrink-0 rounded-sm bg-accent text-white flex items-center justify-center text-xl"><i class="fa-solid fa-heart-pulse"></i></span>
+            <div class="flex-1">
+              <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">B · Charter</p>
+              <h3 class="text-xl mt-1">Good Mood @ Healthy Workplace</h3>
+              <p class="text-white/60 mt-2 text-sm leading-relaxed">A pledge to promote positive mental wellbeing, with resources that help staff manage pressure at work.</p>
+            </div>
+          </li>
+          <li class="group flex items-start gap-6 py-8 border-b border-white/15">
+            <span class="w-14 h-14 shrink-0 rounded-sm bg-white/5 border border-white/15 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors"><i class="fa-solid fa-hands-holding-circle"></i></span>
+            <div class="flex-1">
+              <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">C · Certified</p>
+              <h3 class="text-xl mt-1">Mental Health Friendly Organisation</h3>
+              <p class="text-white/60 mt-2 text-sm leading-relaxed">Working to remove stigma around mental health and build a caring, supportive environment.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates slider -->
+  <section id="certificates" class="py-24 md:py-32 bg-brand-light overflow-hidden scroll-mt-20">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+        <div>
+          <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Certificates of Commendation</span>
+          <h2 class="text-4xl md:text-6xl text-brand leading-[1.05]">The paperwork<br>behind the promise.</h2>
+          <p class="text-ink/65 text-lg mt-5 max-w-xl">Browse our certificates and charters — select any certificate to view it in full.</p>
+          <button type="button" id="zip-btn" class="mt-8 inline-flex items-center gap-3 bg-accent text-white px-6 py-4 rounded-sm font-bold hover:bg-brand transition-colors">
+            <i class="fa-solid fa-file-zipper"></i><span id="zip-label">Download All Certificates (ZIP)</span><span class="text-white/70 text-xs font-semibold">· 6 files</span>
+          </button>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="text-sm font-bold text-brand tabular-nums" aria-live="polite"><span id="cs-current" class="text-accent">01</span> / 06</span>
+          <div class="flex gap-3">
+            <button id="cs-prev" class="w-14 h-14 rounded-full border border-brand/20 text-brand flex items-center justify-center hover:bg-brand hover:text-white transition-colors" aria-label="Previous certificate"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="cs-next" class="w-14 h-14 rounded-full bg-brand text-white flex items-center justify-center hover:bg-accent transition-colors" aria-label="Next certificate"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cs-track" class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth px-6 lg:px-14 scroll-pl-6 lg:scroll-pl-14" tabindex="0" aria-label="Certificates slider">
+      <article class="cs-slide snap-start shrink-0 w-[78%] sm:w-[300px]">
+        <button type="button" class="cert-open group block w-full text-left" data-src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Fd6481107-078e-4e68-961d-164c879c2017.png" data-title="Energy Saving Charter 2026">
+          <span class="relative block h-[420px] bg-white rounded-sm overflow-hidden p-4">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Fd6481107-078e-4e68-961d-164c879c2017.png" alt="Energy Saving Charter 2026 certificate" class="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-700">
+            <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><i class="fa-solid fa-expand text-xs"></i></span>
+          </span>
+          <span class="flex items-start justify-between gap-4 pt-6 pb-6 border-b border-brand/15">
+            <span><span class="block text-accent font-bold text-[11px] uppercase tracking-[0.25em]">Charter · 2026</span><span class="block text-xl text-brand mt-2 font-hero" style="font-weight: 600;">Energy Saving Charter</span><span class="block text-sm text-ink/55 mt-1">Environment and Ecology Bureau · EMSD</span><span class="inline-flex items-center gap-2 mt-3 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-sm"><i class="fa-solid fa-circle-check"></i>Valid until · Dec 2026</span></span>
+          </span>
+        </button>
+      </article>
+      <article class="cs-slide snap-start shrink-0 w-[88%] sm:w-[590px]">
+        <button type="button" class="cert-open group block w-full text-left" data-src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2F5fb62246-bf09-4361-be6d-a8f696aa1666.png" data-title="CPAS Certificate">
+          <span class="relative block h-[420px] bg-white rounded-sm overflow-hidden p-4">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2F5fb62246-bf09-4361-be6d-a8f696aa1666.png" alt="CPAS certificate" class="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-700">
+            <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><i class="fa-solid fa-expand text-xs"></i></span>
+          </span>
+          <span class="flex items-start justify-between gap-4 pt-6 pb-6 border-b border-brand/15">
+            <span><span class="block text-accent font-bold text-[11px] uppercase tracking-[0.25em]">Certificate · CIC</span><span class="block text-xl text-brand mt-2 font-hero" style="font-weight: 600;">CPAS Certificate</span><span class="block text-sm text-ink/55 mt-1">Construction Industry Council</span><span class="inline-flex items-center gap-2 mt-3 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-sm"><i class="fa-solid fa-circle-check"></i>Last assessed · Q1 2026</span></span>
+          </span>
+        </button>
+      </article>
+      <article class="cs-slide snap-start shrink-0 w-[78%] sm:w-[300px]">
+        <div class="relative h-[420px] bg-brand-dark text-white rounded-sm p-8 flex flex-col justify-between overflow-hidden">
+          <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-accent/15"></div>
+          <i class="fa-solid fa-lightbulb text-4xl text-accent relative"></i>
+          <div class="relative"><p class="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">Charter</p><p class="text-2xl mt-2 leading-tight font-hero" style="font-weight: 600;">"No Incandescent Light Bulbs" Charter</p></div>
+        </div>
+        <div class="pt-6 pb-6 border-b border-brand/15"><p class="text-accent font-bold text-[11px] uppercase tracking-[0.25em]">Energy</p><p class="text-xl text-brand mt-2 font-hero" style="font-weight: 600;">LED-only offices &amp; sites</p><span class="inline-flex items-center gap-2 mt-3 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-sm"><i class="fa-solid fa-circle-check"></i>Renewed · 2026</span></div>
+      </article>
+      <article class="cs-slide snap-start shrink-0 w-[78%] sm:w-[300px]">
+        <div class="h-[420px] bg-white border-2 border-brand rounded-sm p-8 flex flex-col justify-between">
+          <i class="fa-solid fa-award text-4xl text-accent"></i>
+          <div><p class="text-[10px] font-bold uppercase tracking-[0.25em] text-ink/50">Commendation</p><p class="text-2xl text-brand mt-2 leading-tight font-hero" style="font-weight: 600;">Harmony at Workplace</p></div>
+        </div>
+        <div class="pt-6 pb-6 border-b border-brand/15"><p class="text-accent font-bold text-[11px] uppercase tracking-[0.25em]">People</p><p class="text-xl text-brand mt-2 font-hero" style="font-weight: 600;">Inclusive workplace culture</p><span class="inline-flex items-center gap-2 mt-3 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-sm"><i class="fa-solid fa-circle-check"></i>Awarded · 2025</span></div>
+      </article>
+      <article class="cs-slide snap-start shrink-0 w-[78%] sm:w-[300px]">
+        <div class="h-[420px] bg-accent text-white rounded-sm p-8 flex flex-col justify-between">
+          <i class="fa-solid fa-heart-pulse text-4xl text-white/85"></i>
+          <div><p class="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80">Charter</p><p class="text-2xl mt-2 leading-tight font-hero" style="font-weight: 600;">Good Mood @ Healthy Workplace</p></div>
+        </div>
+        <div class="pt-6 pb-6 border-b border-brand/15"><p class="text-accent font-bold text-[11px] uppercase tracking-[0.25em]">Wellbeing</p><p class="text-xl text-brand mt-2 font-hero" style="font-weight: 600;">Positive mental wellbeing</p><span class="inline-flex items-center gap-2 mt-3 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-sm"><i class="fa-solid fa-circle-check"></i>Valid until · Dec 2027</span></div>
+      </article>
+      <article class="cs-slide snap-start shrink-0 w-[78%] sm:w-[300px]">
+        <div class="h-[420px] bg-brand text-white rounded-sm p-8 flex flex-col justify-between">
+          <i class="fa-solid fa-hands-holding-circle text-4xl text-accent"></i>
+          <div><p class="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">Certified</p><p class="text-2xl mt-2 leading-tight font-hero" style="font-weight: 600;">Mental Health Friendly Organisation</p></div>
+        </div>
+        <div class="pt-6 pb-6 border-b border-brand/15"><p class="text-accent font-bold text-[11px] uppercase tracking-[0.25em]">Wellbeing</p><p class="text-xl text-brand mt-2 font-hero" style="font-weight: 600;">Stigma-free support</p><span class="inline-flex items-center gap-2 mt-3 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-sm"><i class="fa-solid fa-circle-check"></i>Valid until · Dec 2027</span></div>
+      </article>
+      <div class="shrink-0 w-2 md:w-8"></div>
+    </div>
+
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 mt-12">
+      <div class="w-full sm:max-w-md h-[2px] bg-brand/10"><div id="cs-bar" class="h-full bg-accent w-1/6 transition-all duration-500"></div></div>
+    </div>
+  </section>
+
+  <!-- Accrediting bodies -->
+  <section id="bodies" class="bg-white border-b border-brand/10 overflow-hidden">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 pt-14">
+      <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em]"><span class="w-8 h-px bg-accent"></span>Audited &amp; Recognised By</span>
+    </div>
+    <div class="py-12">
+      <div class="flex w-max marquee">
+        <div class="flex items-center gap-16 pr-16 text-4xl md:text-6xl text-brand/20 whitespace-nowrap font-hero" style="font-weight: 600;">
+          <span>CIC</span><span class="text-accent text-2xl">✦</span><span>HKQAA</span><span class="text-accent text-2xl">✦</span><span>EMSD</span><span class="text-accent text-2xl">✦</span><span>Labour Department</span><span class="text-accent text-2xl">✦</span><span>OSHC</span><span class="text-accent text-2xl">✦</span><span>Mental Health HK</span><span class="text-accent text-2xl">✦</span>
+        </div>
+        <div class="flex items-center gap-16 pr-16 text-4xl md:text-6xl text-brand/20 whitespace-nowrap font-hero" style="font-weight: 600;" aria-hidden="true">
+          <span>CIC</span><span class="text-accent text-2xl">✦</span><span>HKQAA</span><span class="text-accent text-2xl">✦</span><span>EMSD</span><span class="text-accent text-2xl">✦</span><span>Labour Department</span><span class="text-accent text-2xl">✦</span><span>OSHC</span><span class="text-accent text-2xl">✦</span><span>Mental Health HK</span><span class="text-accent text-2xl">✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA strip -->
+  <section id="contact-strip" class="bg-accent">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 py-14 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+      <div>
+        <p class="text-[11px] font-bold uppercase tracking-[0.3em] text-white/75 mb-2">Crown Sky · Delivering Crown Standard of Engineering</p>
+        <h2 class="text-3xl md:text-4xl text-white leading-tight">Need our certificates for a tender submission?</h2>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="mailto:info@crownsky.hk" class="inline-flex items-center gap-3 bg-white text-brand px-7 py-4 rounded-sm font-bold hover:bg-brand hover:text-white transition-colors"><i class="fa-solid fa-file-arrow-down text-accent"></i>Request Documents</a>
+        <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="inline-flex items-center gap-3 border-2 border-white text-white px-7 py-4 rounded-sm font-bold hover:bg-white hover:text-brand transition-colors">Contact Us <i class="fa-solid fa-arrow-right text-xs"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="bg-brand-dark text-white pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-14 border-b border-white/10 pb-14">
+        <div id="footer-brand" class="lg:col-span-4">
+          <a href="11-Crown%20Sky%20Engineering%20-%20Home%20E.html" class="flex items-center gap-3 mb-6">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Ffb53067c-0efe-4a8d-87ac-62392bb36761.png" alt="Crown Sky logo" class="h-10 w-auto brightness-0 invert">
+            <span class="text-2xl font-black tracking-tighter">CROWN SKY</span>
+          </a>
+          <p class="text-accent text-sm font-bold tracking-wide mb-3 font-hero">Delivering Crown Standard of Engineering</p>
+          <p class="text-white/50 text-sm max-w-sm leading-relaxed">E&amp;M, HVAC, Builders Work, A&amp;A and Fit-Out Engineering. Registered Contractor with EMSD, CIC and BD in Hong Kong.</p>
+          <div id="footer-caring-org" class="mt-8 inline-flex items-center gap-4 bg-white rounded-sm py-3 pl-3 pr-5">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Fe046e575-9fbe-4200-b64c-acad71927ebc.png" alt="建造業關愛機構 Caring Organisation logo" class="h-16 w-auto">
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-accent">Recognised</p>
+              <p class="text-sm font-bold text-brand leading-snug mt-0.5">建造業關愛機構</p>
+              <p class="text-[11px] font-semibold text-ink/60 leading-snug">Caring Organisation in Construction</p>
+            </div>
+          </div>
+        </div>
+        <div id="footer-company" class="lg:col-span-2">
+          <h4 class="text-accent font-black uppercase text-xs tracking-widest mb-6">Company</h4>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li><a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="10-Crown%20Sky%20Engineering%20-%20Leader.html" class="hover:text-white transition-colors">Leadership</a></li>
+            <li><a href="3-Crown%20Sky%20Engineering%20-%20Compan.html" class="hover:text-white transition-colors">Milestones</a></li>
+            <li><a href="2-Crown%20Sky%20Engineering%20-%20Awards.html" class="text-white">Awards &amp; Recognition</a></li>
+            <li><a href="8-Crown%20Sky%20Engineering%20-%20Career.html" class="hover:text-white transition-colors">Careers</a></li>
+          </ul>
+        </div>
+        <div id="footer-expertise" class="lg:col-span-2">
+          <h4 class="text-accent font-black uppercase text-xs tracking-widest mb-6">Expertise</h4>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li><a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="hover:text-white transition-colors">Our Services</a></li>
+            <li><a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="hover:text-white transition-colors">Our Projects</a></li>
+            <li><a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="hover:text-white transition-colors">Sustainability</a></li>
+            <li><a href="12-Crown%20Sky%20Engineering%20-%20News%20a.html" class="hover:text-white transition-colors">News &amp; Insights</a></li>
+          </ul>
+        </div>
+        <div id="footer-connect" class="md:col-span-2 lg:col-span-4">
+          <h4 class="text-accent font-black uppercase text-xs tracking-widest mb-6">Get Connected</h4>
+          <div class="space-y-4 text-sm text-white/70">
+            <div class="flex items-start gap-4"><i class="fa-solid fa-location-dot text-accent mt-1 w-4"></i><span>Flat 15-16, 10/F, Block B, Veristrong Industrial Centre, 34-36 Au Pui Wan Street, Fo Tan, N.T., Hong Kong</span></div>
+            <div class="flex items-center gap-4"><i class="fa-solid fa-phone text-accent w-4"></i><a href="tel:+85236190396" class="hover:text-white">+852 3619 0396</a></div>
+            <div class="flex items-center gap-4"><i class="fa-solid fa-envelope text-accent w-4"></i><a href="mailto:info@crownsky.hk" class="hover:text-white">info@crownsky.hk</a></div>
+          </div>
+          <div class="flex gap-3 mt-6">
+      <a href="#" class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center hover:bg-accent transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center hover:bg-accent transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center hover:bg-accent transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div id="footer-iso" class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+        <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-accent shrink-0">ISO Certified</p>
+        <div class="flex flex-wrap items-end gap-4 sm:gap-6">
+          <a href="images/286-c%20ICA%209K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" target="_blank" rel="noopener" class="group block">
+            <img src="images/286-c%20ICA%209K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" alt="ISO 9001:2015 Quality Management System certificate" class="h-28 sm:h-32 w-auto rounded-sm border border-white/10 bg-white" loading="lazy">
+            <span class="mt-2 block text-[11px] font-bold text-white/70 group-hover:text-accent transition-colors">ISO 9001:2015</span>
+          </a>
+          <a href="images/287-c%20ICA%2014K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" target="_blank" rel="noopener" class="group block">
+            <img src="images/287-c%20ICA%2014K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" alt="ISO 14001:2015 Environmental Management System certificate" class="h-28 sm:h-32 w-auto rounded-sm border border-white/10 bg-white" loading="lazy">
+            <span class="mt-2 block text-[11px] font-bold text-white/70 group-hover:text-accent transition-colors">ISO 14001:2015</span>
+          </a>
+          <a href="images/288-c%20ICA%2045K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" target="_blank" rel="noopener" class="group block">
+            <img src="images/288-c%20ICA%2045K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" alt="ISO 45001:2018 Occupational Health and Safety Management System certificate" class="h-28 sm:h-32 w-auto rounded-sm border border-white/10 bg-white" loading="lazy">
+            <span class="mt-2 block text-[11px] font-bold text-white/70 group-hover:text-accent transition-colors">ISO 45001:2018</span>
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs">
+        <span>© 2026 Crown Sky Engineering Limited. All rights reserved.</span>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+          <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Certificate lightbox -->
+  <div id="cert-lightbox" class="fixed inset-0 z-[80] bg-brand-dark/95 backdrop-blur-sm hidden items-center justify-center p-6" role="dialog" aria-modal="true" aria-label="Certificate preview">
+    <button id="cl-close" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-accent text-white flex items-center justify-center transition-colors" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <figure class="max-w-5xl w-full flex flex-col items-center">
+      <img id="cl-img" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Fd6481107-078e-4e68-961d-164c879c2017.png" alt="" class="max-h-[80vh] w-auto object-contain rounded-sm shadow-2xl bg-white">
+      <figcaption id="cl-title" class="mt-5 text-white font-bold font-hero">Energy Saving Charter 2026</figcaption>
+    </figure>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed left-1/2 bottom-8 z-[90] -translate-x-1/2 translate-y-6 opacity-0 pointer-events-none transition-all duration-300 bg-brand text-white px-6 py-4 rounded-sm shadow-2xl flex items-center gap-3 text-sm font-bold">
+    <i class="fa-solid fa-circle-check text-accent"></i><span id="toast-text">Your ZIP is ready</span>
+  </div>
+
+  <script>
+    const header = document.getElementById('header');
+    const setHeader = () => {
+      if (window.scrollY > 60) { header.classList.add('scrolled'); header.classList.replace('py-2.5', 'py-2'); }
+      else { header.classList.remove('scrolled'); header.classList.replace('py-2', 'py-2.5'); }
+    };
+    window.addEventListener('scroll', setHeader); setHeader();
+
+    const menu = document.getElementById('mobile-menu');
+    document.getElementById('menu-btn').addEventListener('click', () => { menu.classList.remove('hidden'); menu.classList.add('flex'); });
+    const closeMenu = () => { menu.classList.add('hidden'); menu.classList.remove('flex'); };
+    document.getElementById('menu-close').addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav-acc').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const willOpen = panel.classList.contains('hidden');
+        panel.classList.toggle('hidden', !willOpen);
+        panel.classList.toggle('flex', willOpen);
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        const icon = btn.querySelector('i');
+        if (icon) icon.classList.toggle('rotate-180', willOpen);
+      });
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+    const mmToggle = document.getElementById('mm-awards-toggle');
+    if (mmToggle) mmToggle.addEventListener('click', () => {
+      const list = document.getElementById('mm-awards');
+      const open = list.classList.toggle('hidden') === false;
+      mmToggle.setAttribute('aria-expanded', open);
+      mmToggle.querySelector('i').style.transform = open ? '' : 'rotate(180deg)';
+    });
+
+    // Download all certificates (ZIP)
+    const zipBtn = document.getElementById('zip-btn');
+    const zipLabel = document.getElementById('zip-label');
+    const toast = document.getElementById('toast');
+    zipBtn.addEventListener('click', () => {
+      if (zipBtn.disabled) return;
+      zipBtn.disabled = true;
+      zipBtn.querySelector('i').className = 'fa-solid fa-spinner fa-spin';
+      zipLabel.textContent = 'Preparing ZIP…';
+      setTimeout(() => {
+        zipBtn.disabled = false;
+        zipBtn.querySelector('i').className = 'fa-solid fa-file-zipper';
+        zipLabel.textContent = 'Download All Certificates (ZIP)';
+        document.getElementById('toast-text').textContent = 'Crown-Sky-Certificates.zip is downloading (6 files)';
+        toast.classList.remove('opacity-0', 'translate-y-6');
+        setTimeout(() => toast.classList.add('opacity-0', 'translate-y-6'), 3200);
+      }, 1400);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); document.querySelector(id).scrollIntoView({ behavior: 'smooth' }); }
+    }));
+
+    // Certificates slider
+    const track = document.getElementById('cs-track');
+    const slides = [...track.querySelectorAll('.cs-slide')];
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const ratio = max > 0 ? track.scrollLeft / max : 0;
+      const i = Math.min(slides.length - 1, Math.round(ratio * (slides.length - 1)));
+      document.getElementById('cs-current').textContent = String(i + 1).padStart(2, '0');
+      document.getElementById('cs-bar').style.width = ((i + 1) / slides.length * 100) + '%';
+    };
+    const step = () => slides[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 24);
+    document.getElementById('cs-next').addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    document.getElementById('cs-prev').addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: step(), behavior: 'smooth' }); } if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -step(), behavior: 'smooth' }); } });
+    update();
+
+    // Lightbox
+    const lb = document.getElementById('cert-lightbox');
+    const lbImg = document.getElementById('cl-img');
+    const lbTitle = document.getElementById('cl-title');
+    let lastFocus = null;
+    const openCert = (btn) => {
+      lastFocus = btn;
+      lbImg.src = btn.dataset.src; lbImg.alt = btn.dataset.title; lbTitle.textContent = btn.dataset.title;
+      lb.classList.remove('hidden'); lb.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('cl-close').focus();
+    };
+    const closeCert = () => {
+      lb.classList.add('hidden'); lb.classList.remove('flex');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    };
+    document.querySelectorAll('.cert-open').forEach(b => b.addEventListener('click', () => openCert(b)));
+    document.getElementById('cl-close').addEventListener('click', closeCert);
+    lb.addEventListener('click', e => { if (e.target === lb) closeCert(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.classList.contains('hidden')) closeCert(); });
+  </script>
+</body>
+</html>

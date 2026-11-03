@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest'
+        };
+      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand': '#0f3557',
+            'brand-dark': '#0a2740',
+            'brand-light': '#f4f6f8',
+            'accent': '#c9973f',
+            'ink': '#0f3557'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --font-brand: 'Avenir Next', 'Avenir', 'Nunito Sans', 'Helvetica Neue', Arial, 'PingFang HK', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      --font-hero: 'Maven Pro', var(--font-brand);
+    }
+    html, body { font-family: var(--font-brand); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    h1, h2, h3, h4, #hero { font-family: var(--font-hero); }
+    h1, h2 { font-weight: 600; letter-spacing: -0.02em; }
+    h3, h4 { font-weight: 600; }
+    #hero h1 { font-weight: 500; letter-spacing: -0.025em; line-height: 1.04; }
+    #hero p { font-weight: 400; }
+
+    /* Header states */
+    #header { transition: background-color .4s ease, box-shadow .4s ease, padding .4s ease; }
+    #header .hdr-text { color: #fff; transition: color .3s ease; }
+    #header .hdr-sub { color: #c9973f; }
+    #header .hdr-logo { filter: brightness(0) invert(1); height: 3rem; width: auto; transition: filter .3s ease, height .35s ease; }
+    @media (min-width: 1280px) { #header .hdr-logo { height: 4rem; } }
+    #header .hdr-tag { margin-top: 0.35rem; white-space: nowrap; }
+    #header .hdr-line { background: rgba(255,255,255,.25); }
+    #header.scrolled { background: #fff; box-shadow: 0 10px 30px -18px rgba(15,53,87,.35); }
+    #header.scrolled .hdr-text { color: #0f3557; }
+    #header.scrolled .hdr-logo { filter: none; height: 2.75rem; }
+    #header.scrolled .hdr-line { background: rgba(15,53,87,.15); }
+    .nav-link { position: relative; white-space: nowrap; }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: #c9973f; transition: width .3s ease; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Hero slideshow */
+    .hero-slide { opacity: 0; transition: opacity 1.4s ease; }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide.active img { animation: kenburns 9s ease-out forwards; }
+    @keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1.0); } }
+    .hero-bar-fill { width: 0; }
+    .hero-bar.active .hero-bar-fill { animation: barfill 6s linear forwards; }
+    .hero-bar.done .hero-bar-fill { width: 100%; }
+    @keyframes barfill { from { width: 0; } to { width: 100%; } }
+    .rise { opacity: 0; transform: translateY(30px); animation: rise 1.1s cubic-bezier(.22,1,.36,1) forwards; }
+    .rise-2 { animation-delay: .15s; } .rise-3 { animation-delay: .3s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    .scroll-dot { animation: scrolldot 2s ease-in-out infinite; }
+    @keyframes scrolldot { 0% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(44px); opacity: 0; } 100% { opacity: 0; } }
+
+    /* Arrow link */
+    .arrow-link .arrow-line { width: 2.5rem; transition: width .35s ease; }
+    .arrow-link:hover .arrow-line { width: 4rem; }
+
+    /* Service panels */
+    @media (min-width: 1024px) {
+      #service-panels { grid-template-columns: 3.2fr 1fr 1fr 1fr; transition: grid-template-columns .8s cubic-bezier(.22,1,.36,1); }
+      #service-panels[data-active="1"] { grid-template-columns: 1fr 3.2fr 1fr 1fr; }
+      #service-panels[data-active="2"] { grid-template-columns: 1fr 1fr 3.2fr 1fr; }
+      #service-panels[data-active="3"] { grid-template-columns: 1fr 1fr 1fr 3.2fr; }
+      .svc-panel { min-width: 0; }
+      .svc-panel:not(.active) > .relative { padding: 1.75rem 1.5rem; }
+      .svc-panel:not(.active) h3 { font-size: 1.35rem; line-height: 1.2; }
+      .svc-panel .svc-body { opacity: 0; max-height: 0; transform: translateY(16px); transition: opacity .4s ease, transform .5s ease, max-height .5s ease; overflow: hidden; }
+      .svc-panel.active .svc-body { opacity: 1; max-height: 260px; transform: none; transition-delay: .25s; }
+      .svc-panel .svc-vertical { opacity: 1; transition: opacity .3s ease; }
+      .svc-panel.active .svc-vertical { opacity: 0; }
+      .svc-panel img { transition: transform 1.2s ease, opacity .6s ease; }
+      .svc-panel.active img { transform: scale(1.04); opacity: .6; }
+    }
+
+    /* Certification modal */
+    .cert-tab { color: rgba(255,255,255,.65); }
+    .cert-tab:hover { background: rgba(255,255,255,.06); color: #fff; }
+    .cert-tab.active { background: #fff; color: #0f3557; }
+    #cert-panel { animation: modalIn .45s cubic-bezier(.22,1,.36,1); }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
+
+    /* Project filter */
+    .proj-filter { color: #0f3557; border-color: rgba(15,53,87,.15); }
+    .proj-filter:hover { border-color: #c9973f; }
+    .proj-filter.active { background: #0f3557; color: #fff; border-color: #0f3557; }
+    .proj-filter.active .pf-count { background: #c9973f; color: #fff; }
+    .proj-card.is-hidden { display: none; }
+    .proj-card.is-in { animation: cardIn .6s cubic-bezier(.22,1,.36,1); }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+    /* Smart site */
+    .tech-grid { background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 48px 48px; }
+    .ss-tab { border-color: rgba(255,255,255,.12); }
+    .ss-tab .ss-desc { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .5s ease, opacity .4s ease; }
+    .ss-tab.active { border-color: #c9973f; background: rgba(201,151,63,.08); }
+    .ss-tab.active .ss-desc { max-height: 160px; opacity: 1; }
+    .ss-tab.active .ss-num { color: #c9973f; }
+    .ss-visual { opacity: 0; transition: opacity .8s ease; }
+    .ss-visual.active { opacity: 1; }
+    .scanline { animation: scan 3.2s linear infinite; }
+    @keyframes scan { from { top: 0%; } to { top: 100%; } }
+    .blink { animation: blink 1.4s ease-in-out infinite; }
+    @keyframes blink { 50% { opacity: .25; } }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-white text-ink overflow-x-hidden selection:bg-accent selection:text-white">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 py-2.5">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 flex items-center justify-between">
+      <a href="11-Crown%20Sky%20Engineering%20-%20Home%20E.html" id="header-brand" class="hdr-brand flex flex-col items-center shrink-0">
+        <img src="images/crown-sky-logo.png" alt="Crown Sky" class="hdr-logo">
+        <span class="hdr-sub hdr-tag text-[10px] xl:text-[11px] font-bold tracking-[0.18em] uppercase">Engineering Limited</span>
+      </a>
+
+      <nav id="header-nav" class="hidden xl:flex items-center gap-3 2xl:gap-5">
+        <div class="relative group">
+        <a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap inline-flex items-center gap-1.5 py-2">About Crown Sky <i class="fa-solid fa-chevron-down text-[9px] opacity-70 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></i></a>
+        <div class="absolute left-0 top-full pt-2 w-72 opacity-0 invisible pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 transition-all duration-200 z-[70]">
+          <div class="bg-white rounded-sm shadow-xl border border-brand/10 py-2">
+            <a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">About Us</a>
+            <a href="1-Crown%20Sky%20Engineering%20-%20About.html#values" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Our Core Values</a>
+            <a href="1-Crown%20Sky%20Engineering%20-%20About.html#leadership" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Message from Management</a>
+            <a href="10-Crown%20Sky%20Engineering%20-%20Leader.html" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Our Leadership</a>
+            <a href="2-Crown%20Sky%20Engineering%20-%20Awards.html" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Awards &amp; Recognition</a>
+            <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html#partners" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Strategic Partners</a>
+            <a href="3-Crown%20Sky%20Engineering%20-%20Compan.html" class="block px-5 py-2.5 text-[13px] font-semibold text-ink/75 hover:bg-brand-light hover:text-brand transition-colors">Company Milestones</a>
+          </div>
+        </div>
+      </div>
+        <a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Our Services</a>
+        <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Our Projects</a>
+        <a href="12-Crown%20Sky%20Engineering%20-%20News%20a.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">News &amp; Insights</a>
+        <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Sustainability</a>
+        <a href="8-Crown%20Sky%20Engineering%20-%20Career.html" class="nav-link hdr-text text-[12px] 2xl:text-[13px] font-semibold whitespace-nowrap">Join Our Team</a>
+        <span class="hdr-line w-px h-5 shrink-0"></span>
+        <div class="hdr-text text-[12px] font-bold tracking-widest flex items-center gap-2 shrink-0"><a href="#" class="text-accent">EN</a><span class="opacity-40">/</span><a href="#" class="opacity-70 hover:opacity-100">繁</a></div>
+        <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="bg-accent text-white px-4 2xl:px-5 py-2.5 rounded-sm text-[12px] 2xl:text-[13px] font-bold hover:bg-brand transition-colors whitespace-nowrap shrink-0">Contact Us</a>
+      </nav>
+
+      <button id="menu-btn" class="xl:hidden hdr-text w-11 h-11 inline-flex items-center justify-center text-xl shrink-0" aria-label="Open menu"><i class="fa-solid fa-bars-staggered"></i></button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark text-white px-6 py-6 hidden flex-col">
+    <div class="flex items-center justify-between">
+      <span class="text-xl font-extrabold tracking-tighter">CROWN SKY</span>
+      <button id="menu-close" class="text-2xl" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="mt-6 flex-1 overflow-y-auto flex flex-col font-hero pb-8">
+      <div class="border-b border-white/10">
+        <button type="button" class="nav-acc w-full flex items-center justify-between py-3.5 text-left text-lg font-semibold text-white" aria-expanded="false">
+          <span>About Crown Sky</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+        </button>
+        <div class="nav-acc-panel hidden flex-col pb-3 pl-4 ml-1 border-l border-accent/40">
+          <a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="mobile-link block py-2 text-[15px] text-white/75">About Us</a>
+          <a href="1-Crown%20Sky%20Engineering%20-%20About.html#values" class="mobile-link block py-2 text-[15px] text-white/75">Our Core Values</a>
+          <a href="1-Crown%20Sky%20Engineering%20-%20About.html#leadership" class="mobile-link block py-2 text-[15px] text-white/75">Message from Management</a>
+          <a href="10-Crown%20Sky%20Engineering%20-%20Leader.html" class="mobile-link block py-2 text-[15px] text-white/75">Our Leadership</a>
+          <a href="2-Crown%20Sky%20Engineering%20-%20Awards.html" class="mobile-link block py-2 text-[15px] text-white/75">Awards &amp; Recognition</a>
+          <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html#partners" class="mobile-link block py-2 text-[15px] text-white/75">Strategic Partners</a>
+          <a href="3-Crown%20Sky%20Engineering%20-%20Compan.html" class="mobile-link block py-2 text-[15px] text-white/75">Company Milestones</a>
+        </div>
+      </div>
+      <a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Our Services</a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Our Projects</a>
+      <a href="12-Crown%20Sky%20Engineering%20-%20News%20a.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">News &amp; Insights</a>
+      <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Sustainability</a>
+      <a href="8-Crown%20Sky%20Engineering%20-%20Career.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-white">Join Our Team</a>
+      <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="mobile-link py-3.5 text-lg font-semibold border-b border-white/10 text-accent">Contact Us</a>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" class="relative h-[640px] md:h-[860px] overflow-hidden bg-brand-dark">
+    <div id="hero-slides" class="absolute inset-0">
+      <div class="hero-slide active absolute inset-0">
+        <img src="images/people/hero-engineering.png?v=4" alt="Industrial engineering" class="w-full h-full object-cover">
+      </div>
+      <div class="hero-slide absolute inset-0">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_aa5a77482c_e2917b01b383fc52.png" alt="MVAC engineering" class="w-full h-full object-cover">
+      </div>
+      <div class="hero-slide absolute inset-0">
+        <img src="images/people/hero-infra.png?v=4" alt="Infrastructure project" class="w-full h-full object-cover">
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-brand-dark/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-transparent to-transparent"></div>
+
+    <div class="relative z-10 h-full w-full max-w-[1440px] mx-auto px-6 lg:px-14 flex flex-col justify-end pb-16 md:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+        <div id="hero-copy" class="lg:col-span-8">
+          <span class="rise inline-flex items-center gap-4 text-accent font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-7">
+            <span class="w-10 h-px bg-accent"></span>Crown Sky
+          </span>
+          <h1 class="rise rise-2 text-[2.6rem] sm:text-6xl md:text-7xl xl:text-[5.25rem] text-white">
+            Delivering<br> <span class="text-accent whitespace-nowrap">Crown Standard</span><br> of Engineering.
+          </h1>
+        </div>
+        <div id="hero-aside" class="lg:col-span-4 rise rise-3">
+          <p class="text-white/75 text-base md:text-lg leading-relaxed max-w-md">
+            Crown Sky Engineering Limited provides comprehensive MVAC, environmental systems, and construction solutions for iconic projects across Hong Kong and the Greater Bay Area.
+          </p>
+        </div>
+      </div>
+
+      <div id="hero-controls" class="mt-12 md:mt-16 pt-6 border-t border-white/15 flex items-end justify-between gap-8">
+        <div class="flex-1 grid grid-cols-3 gap-4 md:gap-8 max-w-3xl">
+          <button class="hero-bar active text-left group" data-slide="0">
+            <span class="block h-[2px] bg-white/20 overflow-hidden"><span class="hero-bar-fill block h-full bg-accent"></span></span>
+            <span class="hidden md:flex items-center gap-3 mt-4 text-white/60 group-hover:text-white text-xs font-bold tracking-widest uppercase"><span class="text-accent">01</span>Engineering</span>
+          </button>
+          <button class="hero-bar text-left group" data-slide="1">
+            <span class="block h-[2px] bg-white/20 overflow-hidden"><span class="hero-bar-fill block h-full bg-accent"></span></span>
+            <span class="hidden md:flex items-center gap-3 mt-4 text-white/60 group-hover:text-white text-xs font-bold tracking-widest uppercase"><span class="text-accent">02</span>MVAC Systems</span>
+          </button>
+          <button class="hero-bar text-left group" data-slide="2">
+            <span class="block h-[2px] bg-white/20 overflow-hidden"><span class="hero-bar-fill block h-full bg-accent"></span></span>
+            <span class="hidden md:flex items-center gap-3 mt-4 text-white/60 group-hover:text-white text-xs font-bold tracking-widest uppercase"><span class="text-accent">03</span>Infrastructure</span>
+          </button>
+        </div>
+        <a href="#intro" class="hidden md:flex flex-col items-center gap-3 text-white/60 hover:text-white">
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase">Scroll</span>
+          <span class="relative w-px h-14 bg-white/25 overflow-hidden"><span class="scroll-dot absolute top-0 left-0 w-px h-3 bg-accent"></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro statement -->
+  <section id="intro" class="py-24 md:py-36 bg-white">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-3">
+        <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em]"><span class="w-8 h-px bg-accent"></span>Who We Are</span>
+      </div>
+      <div class="lg:col-span-9">
+        <p class="text-[1.75rem] md:text-[2.6rem] leading-[1.3] text-brand font-light tracking-tight" style="font-family: var(--font-hero);">
+          Crown Sky Engineering is a specialist in <span class="text-accent font-medium">MVAC, environmental systems</span> and construction solutions — engineering iconic projects across Hong Kong and the Greater Bay Area.
+        </p>
+        <div class="mt-12 flex flex-wrap gap-x-12 gap-y-5">
+          <a href="#projects" class="arrow-link inline-flex items-center gap-4 text-brand font-bold">View Our Legacy <span class="arrow-line h-[2px] bg-accent"></span></a>
+          <a href="#services" class="arrow-link inline-flex items-center gap-4 text-brand font-bold">Our Expertise <span class="arrow-line h-[2px] bg-accent"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About split -->
+  <section id="about" class="pb-24 md:pb-36 bg-white">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+      <div id="about-media" class="lg:col-span-7 relative">
+        <div class="relative overflow-hidden rounded-sm">
+          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2F1b4755a1-09db-40f1-9175-bff22ef427ce.png" alt="Our team" class="w-full aspect-[4/3] lg:aspect-[5/4] object-cover hover:scale-105 transition-transform duration-1000">
+        </div>
+        <div id="about-badge" class="absolute -bottom-8 right-6 md:right-10 bg-brand text-white px-8 py-7 rounded-sm shadow-2xl">
+          <div class="text-5xl font-semibold text-accent leading-none" style="font-family: var(--font-hero);">60+</div>
+          <div class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/60 mt-3">Expert Professionals</div>
+        </div>
+      </div>
+
+      <div id="about-copy" class="lg:col-span-5 pt-8 lg:pt-0">
+        <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Since Our Inception</span>
+        <h2 class="text-4xl md:text-5xl text-brand leading-[1.1] mb-8">Driven by Safety, Defined by Quality.</h2>
+        <p class="text-ink/70 text-lg leading-relaxed mb-10">
+          Founded in 2021 as the Hong Kong branch of our established Greater Bay Area group (since 2013), Crown Sky Engineering focuses on MVAC services and A&amp;A projects.
+        </p>
+
+        <div id="three-non-guarantees" class="mb-10">
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <p class="text-xs font-bold uppercase tracking-[0.25em] text-brand">The “Three Non-Guarantees”</p>
+            <button type="button" data-open-cert="guarantees" class="inline-flex items-center gap-2 text-xs font-bold text-accent hover:text-brand transition-colors"><i class="fa-solid fa-circle-info"></i>How we enforce them</button>
+          </div>
+          <ul class="divide-y divide-brand/10 border-y border-brand/10">
+            <li class="flex items-center justify-between py-4"><span class="font-semibold text-brand">No cutting corners</span><span class="text-accent text-sm font-bold">01</span></li>
+            <li class="flex items-center justify-between py-4"><span class="font-semibold text-brand">No delays</span><span class="text-accent text-sm font-bold">02</span></li>
+            <li class="flex items-center justify-between py-4"><span class="font-semibold text-brand">No accidents</span><span class="text-accent text-sm font-bold">03</span></li>
+          </ul>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mb-10">
+          <div>
+            <div class="text-2xl md:text-3xl font-semibold text-brand" style="font-family: var(--font-hero);">ISO Certified</div>
+            <div class="text-[11px] font-bold text-accent tracking-widest uppercase mt-1">Global Standards</div>
+          </div>
+          <div>
+            <div class="text-2xl md:text-3xl font-semibold text-brand" style="font-family: var(--font-hero);">20+ Projects</div>
+            <div class="text-[11px] font-bold text-accent tracking-widest uppercase mt-1">Successfully Delivered</div>
+          </div>
+        </div>
+
+        <a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="arrow-link inline-flex items-center gap-4 text-brand font-bold">Discover Our Philosophy <span class="arrow-line h-[2px] bg-accent"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services: expanding panels -->
+  <section id="services" class="py-24 md:py-32 bg-brand-light">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14">
+      <div id="services-head" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14">
+        <div class="lg:col-span-7">
+          <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Our Services</span>
+          <h2 class="text-4xl md:text-6xl text-brand leading-[1.05]">Expert Solutions.</h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="text-ink/65 text-lg leading-relaxed">We provide a spectrum of engineering services tailored for commercial, industrial, and infrastructure sectors.</p>
+        </div>
+      </div>
+
+      <div id="service-panels" data-active="0" class="grid grid-cols-1 gap-3">
+        <!-- MVAC -->
+        <article id="svc-mvac" class="svc-panel active relative overflow-hidden rounded-sm bg-brand cursor-pointer h-[420px] lg:h-[580px] group">
+          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_aa5a77482c_e2917b01b383fc52.png" alt="MVAC engineering" class="absolute inset-0 w-full h-full object-cover opacity-50 lg:opacity-40">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
+          <div class="svc-vertical hidden lg:block absolute top-8 left-8 text-white/70 text-xs font-bold tracking-[0.3em] uppercase">01</div>
+          <div class="relative h-full flex flex-col justify-end p-8 md:p-10">
+            <span class="text-accent text-sm font-bold mb-3">01 — Core Competency</span>
+            <h3 class="text-3xl md:text-4xl text-white leading-tight">MVAC Engineering</h3>
+            <div class="svc-body">
+              <p class="text-white/75 max-w-md mt-4 leading-relaxed">Comprehensive installation, maintenance, and repair of cooling towers, AHUs, and air conditioning systems.</p>
+              <a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="inline-flex items-center gap-3 mt-6 px-6 py-3 border border-white/25 text-white text-sm font-bold hover:bg-white hover:text-brand transition-colors rounded-sm">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Electrical -->
+        <article id="svc-electrical" class="svc-panel relative overflow-hidden rounded-sm bg-brand cursor-pointer h-[420px] lg:h-[580px] group">
+          <img src="images/people/elec.png?v=3" alt="Electrical systems" class="absolute inset-0 w-full h-full object-cover opacity-50 lg:opacity-40">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
+          <div class="svc-vertical hidden lg:block absolute top-8 left-8 text-white/70 text-xs font-bold tracking-[0.3em] uppercase">02</div>
+          <div class="relative h-full flex flex-col justify-end p-8 md:p-10">
+            <span class="text-accent text-sm font-bold mb-3">02</span>
+            <h3 class="text-3xl md:text-4xl text-white leading-tight">Electrical Systems</h3>
+            <div class="svc-body">
+              <p class="text-white/75 max-w-md mt-4 leading-relaxed">Power distribution, smart systems, and CCTV infrastructure with rigorous safety protocols.</p>
+              <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="inline-flex items-center gap-3 mt-6 px-6 py-3 border border-white/25 text-white text-sm font-bold hover:bg-white hover:text-brand transition-colors rounded-sm">Inquire Now <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- A&A -->
+        <article id="svc-aa" class="svc-panel relative overflow-hidden rounded-sm bg-brand cursor-pointer h-[420px] lg:h-[580px] group">
+          <img src="images/people/aa.png?v=3" alt="A&amp;A works" class="absolute inset-0 w-full h-full object-cover opacity-50 lg:opacity-40">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
+          <div class="svc-vertical hidden lg:block absolute top-8 left-8 text-white/70 text-xs font-bold tracking-[0.3em] uppercase">03</div>
+          <div class="relative h-full flex flex-col justify-end p-8 md:p-10">
+            <span class="text-accent text-sm font-bold mb-3">03</span>
+            <h3 class="text-3xl md:text-4xl text-white leading-tight">A&amp;A Works</h3>
+            <div class="svc-body">
+              <p class="text-white/75 max-w-md mt-4 leading-relaxed">Alterations, additions, and structural renovations for modern workspaces.</p>
+              <a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="inline-flex items-center gap-3 mt-6 px-6 py-3 border border-white/25 text-white text-sm font-bold hover:bg-white hover:text-brand transition-colors rounded-sm">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Maintenance -->
+        <article id="svc-maintenance" class="svc-panel relative overflow-hidden rounded-sm bg-brand cursor-pointer h-[420px] lg:h-[580px] group">
+          <img src="images/people/svc-maint.png?v=4" alt="Maintenance" class="absolute inset-0 w-full h-full object-cover opacity-50 lg:opacity-40">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
+          <div class="svc-vertical hidden lg:block absolute top-8 left-8 text-white/70 text-xs font-bold tracking-[0.3em] uppercase">04</div>
+          <div class="relative h-full flex flex-col justify-end p-8 md:p-10">
+            <span class="text-accent text-sm font-bold mb-3">04</span>
+            <h3 class="text-3xl md:text-4xl text-white leading-tight">Maintenance &amp; Beyond</h3>
+            <div class="svc-body">
+              <p class="text-white/75 max-w-md mt-4 leading-relaxed">Proactive maintenance plans ensuring longevity and efficiency of your mechanical assets across Hong Kong and Macau.</p>
+              <div class="flex flex-wrap gap-3 mt-6">
+                <span class="px-4 py-2 bg-white/10 border border-white/20 rounded-sm text-xs font-bold text-white">24/7 Support</span>
+                <span class="px-4 py-2 bg-white/10 border border-white/20 rounded-sm text-xs font-bold text-white">Certified Experts</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats band -->
+  <section id="stats" class="bg-white border-b border-brand/10">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 grid grid-cols-1 sm:grid-cols-3">
+      <div class="py-14 md:py-20 sm:pr-6 border-b sm:border-b-0 sm:border-r border-brand/10">
+        <div class="text-5xl lg:text-7xl font-semibold text-brand" style="font-family: var(--font-hero);"><span class="counter" data-target="100">100</span><span class="text-accent">+</span></div>
+        <div class="text-[11px] font-bold text-accent tracking-[0.3em] uppercase mt-3">Team Size</div>
+      </div>
+      <div class="py-14 md:py-20 sm:px-6 border-b sm:border-b-0 sm:border-r border-brand/10">
+        <div class="text-5xl lg:text-7xl font-semibold text-brand" style="font-family: var(--font-hero);"><span class="counter" data-target="20">20</span><span class="text-accent">+</span></div>
+        <div class="text-[11px] font-bold text-accent tracking-[0.3em] uppercase mt-3">Major Projects</div>
+      </div>
+      <div class="py-14 md:py-20 sm:pl-6">
+        <div class="text-5xl lg:text-7xl font-semibold text-brand" style="font-family: var(--font-hero);"><span class="counter" data-target="100">100</span><span class="text-accent">%</span></div>
+        <div class="text-[11px] font-bold text-accent tracking-[0.3em] uppercase mt-3">Safety Score</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety: full-bleed care section -->
+  <section id="safety" class="relative overflow-hidden bg-brand-dark">
+    <img src="images/people/safety.png?v=3" alt="Safety on site" class="absolute inset-0 w-full h-full object-cover opacity-35">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-brand-dark/40"></div>
+    <div class="relative w-full max-w-[1440px] mx-auto px-6 lg:px-14 py-24 md:py-36 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+      <div id="safety-copy" class="lg:col-span-6">
+        <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Uncompromising Standards</span>
+        <h2 class="text-4xl md:text-6xl text-white leading-[1.05] mb-8">Safety Excellence</h2>
+        <p class="text-white/70 text-lg leading-relaxed max-w-lg mb-10">Stability and protection are the cornerstones of our operational philosophy. We utilize rigorous protocols to ensure a zero-accident environment.</p>
+        <div class="flex flex-wrap items-center gap-x-10 gap-y-5">
+          <button type="button" data-open-cert="iso" class="inline-flex items-center gap-3 bg-accent text-white px-7 py-4 rounded-sm font-bold hover:bg-white hover:text-brand transition-colors"><i class="fa-solid fa-certificate"></i>Safety &amp; Certification Details</button>
+          <button type="button" data-open-cert="guarantees" class="arrow-link inline-flex items-center gap-4 text-white font-bold">The Three Non-Guarantees <span class="arrow-line h-[2px] bg-accent"></span></button>
+        </div>
+      </div>
+      <div id="safety-list" class="lg:col-span-5 lg:col-start-8">
+        <ul class="border-t border-white/15">
+          <li data-open-cert="iso" class="group flex items-start gap-6 py-8 border-b border-white/15 cursor-pointer">
+            <span class="w-14 h-14 shrink-0 rounded-sm bg-white/5 border border-white/15 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors"><i class="fa-solid fa-shield-halved"></i></span>
+            <div class="flex-1">
+              <h3 class="text-xl text-white">ISO 45001</h3>
+              <p class="text-white/60 mt-1">Occupational Health &amp; Safety Management</p>
+            </div>
+            <i class="fa-solid fa-arrow-right text-white/40 mt-2 group-hover:text-accent group-hover:translate-x-1 transition-all"></i>
+          </li>
+          <li class="group flex items-start gap-6 py-8 border-b border-white/15">
+            <span class="w-14 h-14 shrink-0 rounded-sm bg-white/5 border border-white/15 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors"><i class="fa-solid fa-user-check"></i></span>
+            <div>
+              <h3 class="text-xl text-white">Zero Accidents</h3>
+              <p class="text-white/60 mt-1">Consecutive years of injury-free operations</p>
+            </div>
+          </li>
+          <li class="group flex items-start gap-6 py-8 border-b border-white/15">
+            <span class="w-14 h-14 shrink-0 rounded-sm bg-white/5 border border-white/15 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors"><i class="fa-solid fa-helmet-safety"></i></span>
+            <div>
+              <h3 class="text-xl text-white">Rigorous Training</h3>
+              <p class="text-white/60 mt-1">Continuous skill &amp; safety workshops</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Site Solutions -->
+  <section id="smart-site" class="relative overflow-hidden bg-[#071d31] text-white">
+    <div class="tech-grid absolute inset-0"></div>
+    <div class="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-accent/10 blur-3xl"></div>
+    <div class="relative w-full max-w-[1440px] mx-auto px-6 lg:px-14 py-24 md:py-32">
+      <div id="smart-head" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14">
+        <div class="lg:col-span-7">
+          <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Sustainability</span>
+          <h2 class="text-4xl md:text-6xl leading-[1.05]">Waste data on <span class="text-accent">every</span> site.</h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="text-white/65 text-lg leading-relaxed">OROKO is our cloud waste-management system. We capture, store, analyse and report construction waste, in support of Hong Kong’s Climate Action Plan 2030+.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        <!-- Tabs -->
+        <div id="smart-tabs" class="lg:col-span-5 flex flex-col gap-3">
+          <button type="button" data-ss="0" class="ss-tab active text-left border rounded-sm p-6 transition-colors">
+            <div class="flex items-center gap-5">
+              <span class="ss-num text-sm font-bold text-white/40 tabular-nums">01</span>
+              <span class="w-11 h-11 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center text-accent"><i class="fa-solid fa-cloud"></i></span>
+              <h3 class="text-lg md:text-xl flex-1">OROKO Cloud SaaS</h3>
+              <i class="fa-solid fa-chevron-right text-white/30 text-xs"></i>
+            </div>
+            <p class="ss-desc text-white/60 text-sm leading-relaxed pl-[4.75rem] md:pl-[5.25rem]"><span class="block pt-3">A cloud-based system for managing construction waste. It is user friendly, secure, scalable and reliable.</span></p>
+          </button>
+          <button type="button" data-ss="1" class="ss-tab text-left border rounded-sm p-6 transition-colors">
+            <div class="flex items-center gap-5">
+              <span class="ss-num text-sm font-bold text-white/40 tabular-nums">02</span>
+              <span class="w-11 h-11 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center text-accent"><i class="fa-solid fa-database"></i></span>
+              <h3 class="text-lg md:text-xl flex-1">Single Repository</h3>
+              <i class="fa-solid fa-chevron-right text-white/30 text-xs"></i>
+            </div>
+            <p class="ss-desc text-white/60 text-sm leading-relaxed pl-[4.75rem] md:pl-[5.25rem]"><span class="block pt-3">We capture, store, analyse and report construction waste data in one repository.</span></p>
+          </button>
+          <button type="button" data-ss="2" class="ss-tab text-left border rounded-sm p-6 transition-colors">
+            <div class="flex items-center gap-5">
+              <span class="ss-num text-sm font-bold text-white/40 tabular-nums">03</span>
+              <span class="w-11 h-11 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center text-accent"><i class="fa-solid fa-mobile-screen"></i></span>
+              <h3 class="text-lg md:text-xl flex-1">Any Device</h3>
+              <i class="fa-solid fa-chevron-right text-white/30 text-xs"></i>
+            </div>
+            <p class="ss-desc text-white/60 text-sm leading-relaxed pl-[4.75rem] md:pl-[5.25rem]"><span class="block pt-3">The system is available from any device and any location with an internet connection.</span></p>
+          </button>
+          <button type="button" data-ss="3" class="ss-tab text-left border rounded-sm p-6 transition-colors">
+            <div class="flex items-center gap-5">
+              <span class="ss-num text-sm font-bold text-white/40 tabular-nums">04</span>
+              <span class="w-11 h-11 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center text-accent"><i class="fa-solid fa-headset"></i></span>
+              <h3 class="text-lg md:text-xl flex-1">Local Support</h3>
+              <i class="fa-solid fa-chevron-right text-white/30 text-xs"></i>
+            </div>
+            <p class="ss-desc text-white/60 text-sm leading-relaxed pl-[4.75rem] md:pl-[5.25rem]"><span class="block pt-3">OROKO includes local support and guidance on how to use the system effectively.</span></p>
+          </button>
+
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
+            <p class="text-sm text-white/50">Waste management with <span class="text-white font-bold">OROKO</span></p>
+            <a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="text-sm font-bold text-accent hover:text-white transition-colors">Sustainability</a>
+          </div>
+        </div>
+
+        <!-- Visual monitor -->
+        <div id="smart-visual" class="lg:col-span-7">
+          <div class="relative h-[420px] md:h-[600px] rounded-sm overflow-hidden border border-white/10 bg-black">
+            <img src="Sustainability/Dashboard.png" alt="OROKO waste dashboard" class="ss-visual active absolute inset-0 w-full h-full object-contain bg-white">
+            <img src="Sustainability/SingleRepository.jpg" alt="Construction waste data in a single repository" class="ss-visual absolute inset-0 w-full h-full object-contain bg-white">
+            <img src="Sustainability/Mobile2.jpg" alt="OROKO mobile waste dashboard" class="ss-visual absolute inset-0 w-full h-full object-contain bg-[#f7f7f8]">
+            <img src="Sustainability/Screenshot-pm.jpg" alt="OROKO project sites management" class="ss-visual absolute inset-0 w-full h-full object-contain bg-white">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#071d31] via-[#071d31]/10 to-[#071d31]/40"></div>
+
+            <!-- HUD -->
+            <div class="scanline absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"></div>
+            <span class="absolute top-5 left-5 w-8 h-8 border-t-2 border-l-2 border-accent"></span>
+            <span class="absolute top-5 right-5 w-8 h-8 border-t-2 border-r-2 border-accent"></span>
+            <span class="absolute bottom-5 left-5 w-8 h-8 border-b-2 border-l-2 border-accent"></span>
+            <span class="absolute bottom-5 right-5 w-8 h-8 border-b-2 border-r-2 border-accent"></span>
+
+            <div class="absolute top-9 left-10 right-10 flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em]">
+              <span class="inline-flex items-center gap-2 bg-black/40 backdrop-blur px-3 py-1.5 rounded-sm"><span class="blink w-2 h-2 rounded-full bg-accent"></span>OROKO · <span id="ss-cam">Dashboard</span></span>
+              <span id="ss-clock" class="bg-black/40 backdrop-blur px-3 py-1.5 rounded-sm tabular-nums">08:42:16</span>
+            </div>
+
+            <!-- Detection box -->
+            <div id="ss-detect" class="absolute left-[38%] top-[26%] w-[26%] h-[48%] border-2 border-accent rounded-sm transition-all duration-700">
+              <span id="ss-detect-label" class="absolute -top-7 left-[-2px] bg-accent text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm whitespace-nowrap">Total waste · 2,529.56 ton</span>
+            </div>
+
+            <!-- Readout -->
+            <div class="absolute bottom-10 left-10 right-10 grid grid-cols-3 gap-3">
+              <div class="bg-black/45 backdrop-blur border border-white/10 rounded-sm p-4">
+                <p id="ss-r1l" class="text-[10px] font-bold uppercase tracking-widest text-white/50">Diversion</p>
+                <p id="ss-r1" class="text-base md:text-lg font-semibold mt-1 text-emerald-400" style="font-family: var(--font-hero);">21.83%</p>
+              </div>
+              <div class="bg-black/45 backdrop-blur border border-white/10 rounded-sm p-4">
+                <p id="ss-r2l" class="text-[10px] font-bold uppercase tracking-widest text-white/50">Recycled</p>
+                <p id="ss-r2" class="text-base md:text-lg font-semibold mt-1" style="font-family: var(--font-hero);">19.69%</p>
+              </div>
+              <div class="bg-black/45 backdrop-blur border border-white/10 rounded-sm p-4">
+                <p id="ss-r3l" class="text-[10px] font-bold uppercase tracking-widest text-white/50">Reused saving</p>
+                <p id="ss-r3" class="text-base md:text-lg font-semibold mt-1 text-accent" style="font-family: var(--font-hero);">$168,516</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Milestones -->
+  <section id="milestones" class="py-24 md:py-32 bg-white">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
+        <div class="lg:col-span-7">
+          <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Our Journey</span>
+          <h2 class="text-4xl md:text-5xl text-brand leading-[1.1]">Corporate Milestones</h2>
+        </div>
+        <div class="lg:col-span-5 lg:text-right">
+          <a href="3-Crown%20Sky%20Engineering%20-%20Compan.html" class="arrow-link inline-flex items-center gap-4 text-brand font-bold">Full Timeline <span class="arrow-line h-[2px] bg-accent"></span></a>
+        </div>
+      </div>
+
+      <div id="milestone-track" class="relative grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6">
+        <div class="hidden md:block absolute left-0 right-0 top-[7px] h-px bg-brand/15"></div>
+
+        <div id="ms-2013" class="md:col-span-4 relative">
+          <span class="relative z-10 block w-4 h-4 rounded-full bg-white border-[3px] border-accent mb-8"></span>
+          <div class="text-6xl md:text-7xl font-semibold text-brand/10 leading-none" style="font-family: var(--font-hero);">2013</div>
+          <h3 class="text-2xl text-brand mt-4">Origins</h3>
+          <p class="text-ink/60 mt-3 leading-relaxed max-w-sm">The group established its first operations in Zhuhai, focusing on high-quality ventilation fabrication.</p>
+        </div>
+        <div id="ms-2014" class="md:col-span-4 relative">
+          <span class="relative z-10 block w-4 h-4 rounded-full bg-white border-[3px] border-accent mb-8"></span>
+          <div class="text-6xl md:text-7xl font-semibold text-brand/10 leading-none" style="font-family: var(--font-hero);">2014</div>
+          <h3 class="text-2xl text-brand mt-4">GBA Expansion</h3>
+          <p class="text-ink/60 mt-3 leading-relaxed max-w-sm">Expansion into the Macau market, delivering large-scale mechanical solutions for major integrated resorts.</p>
+        </div>
+        <div id="ms-2021" class="md:col-span-4 relative">
+          <span class="relative z-10 block w-4 h-4 rounded-full bg-accent border-[3px] border-accent mb-8 ring-8 ring-accent/15"></span>
+          <div class="text-6xl md:text-7xl font-semibold text-accent leading-none" style="font-family: var(--font-hero);">2021</div>
+          <h3 class="text-2xl text-brand mt-4">Crown Sky HK</h3>
+          <p class="text-ink/60 mt-3 leading-relaxed max-w-sm">Crown Sky Engineering Limited is officially incorporated in Hong Kong to serve the city's growing infrastructure needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects slider -->
+  <section id="projects" class="py-24 md:py-32 bg-brand-light overflow-hidden">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14">
+      <div id="projects-head" class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+        <div>
+          <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Legacy</span>
+          <h2 class="text-4xl md:text-6xl text-brand leading-[1.05]">Discover our<br>iconic projects.</h2>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="text-sm font-bold text-brand tabular-nums"><span id="proj-current" class="text-accent">01</span> / <span id="proj-total">12</span></span>
+          <div class="flex gap-3">
+            <button id="proj-prev" class="w-14 h-14 rounded-full border border-brand/20 text-brand flex items-center justify-center hover:bg-brand hover:text-white transition-colors" aria-label="Previous project"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="proj-next" class="w-14 h-14 rounded-full bg-brand text-white flex items-center justify-center hover:bg-accent transition-colors" aria-label="Next project"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="project-filter" class="flex flex-wrap items-center gap-3 mb-12 pb-8 border-b border-brand/10" role="tablist" aria-label="Filter projects by sector">
+        <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-ink/45 mr-3"><i class="fa-solid fa-sliders mr-2 text-accent"></i>Sector</span>
+        <button type="button" data-filter="all" class="proj-filter active inline-flex items-center gap-3 px-5 py-2.5 border rounded-sm text-sm font-bold transition-colors">All Projects <span class="pf-count text-[11px] min-w-[1.5rem] text-center px-1.5 py-0.5 rounded-sm bg-brand/10">12</span></button>
+        <button type="button" data-filter="financial" class="proj-filter inline-flex items-center gap-3 px-5 py-2.5 border rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-building-columns text-accent text-xs"></i>Financial <span class="pf-count text-[11px] min-w-[1.5rem] text-center px-1.5 py-0.5 rounded-sm bg-brand/10">5</span></button>
+        <button type="button" data-filter="datacenter" class="proj-filter inline-flex items-center gap-3 px-5 py-2.5 border rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-server text-accent text-xs"></i>Data Centers <span class="pf-count text-[11px] min-w-[1.5rem] text-center px-1.5 py-0.5 rounded-sm bg-brand/10">2</span></button>
+        <button type="button" data-filter="commercial" class="proj-filter inline-flex items-center gap-3 px-5 py-2.5 border rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-building text-accent text-xs"></i>Commercial <span class="pf-count text-[11px] min-w-[1.5rem] text-center px-1.5 py-0.5 rounded-sm bg-brand/10">2</span></button>
+        <button type="button" data-filter="infrastructure" class="proj-filter inline-flex items-center gap-3 px-5 py-2.5 border rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-road text-accent text-xs"></i>Infrastructure <span class="pf-count text-[11px] min-w-[1.5rem] text-center px-1.5 py-0.5 rounded-sm bg-brand/10">1</span></button>
+        <button type="button" data-filter="healthcare" class="proj-filter inline-flex items-center gap-3 px-5 py-2.5 border rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-hospital text-accent text-xs"></i>Healthcare <span class="pf-count text-[11px] min-w-[1.5rem] text-center px-1.5 py-0.5 rounded-sm bg-brand/10">1</span></button>
+        <button type="button" data-filter="transport" class="proj-filter inline-flex items-center gap-3 px-5 py-2.5 border rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-train-subway text-accent text-xs"></i>Transport <span class="pf-count text-[11px] min-w-[1.5rem] text-center px-1.5 py-0.5 rounded-sm bg-brand/10">1</span></button>
+      </div>
+    </div>
+
+    <div id="project-scroller" class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth px-6 lg:px-14 scroll-pl-6 lg:scroll-pl-14">
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p01" id="proj-01" data-sector="financial" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/1.Repair%2C%20Maintenance%2C%20Alteration%20and%20Addition%20Work%20for%20Banks%2C%20Branches%2C%20Data%20Centers.png" alt="Repair, Maintenance, Alteration and Addition Work for Banks, Branches, Data Centers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-building-columns text-accent"></i>Financial</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Repair, Maintenance, Alteration and Addition Work for Banks, Branches, Data Centers</h3>
+            <p class="text-sm text-ink/55 mt-1">Banks, branches and data centers</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p02" id="proj-02" data-sector="datacenter" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/2.UPS%20Replacement%20for%20Data%20Centers.png" alt="UPS Replacement for Data Centers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-server text-accent"></i>Data Centers</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">UPS Replacement for Data Centers</h3>
+            <p class="text-sm text-ink/55 mt-1">Data centers</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p03" id="proj-03" data-sector="datacenter" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/3.Permanent%20Busduct%20for%20Temporary%20UPS%20for%20Data%20Centers.png" alt="Permanent Busduct for Temporary UPS for Data Centers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-server text-accent"></i>Data Centers</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Permanent Busduct for Temporary UPS for Data Centers</h3>
+            <p class="text-sm text-ink/55 mt-1">Data centers</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p04" id="proj-04" data-sector="financial" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/4.CCTV%20Replacement%20in%20financial%20institutions.png" alt="CCTV Replacement in financial institutions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-building-columns text-accent"></i>Financial</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">CCTV Replacement in financial institutions</h3>
+            <p class="text-sm text-ink/55 mt-1">Financial institutions</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p05" id="proj-05" data-sector="financial" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/5.Upgrading%20of%20Backup%20Generator%20System%20with%20High%20Voltage%20Cable%20Installation%20in%20financial%20institutions.png" alt="Upgrading of Backup Generator System with High Voltage Cable Installation in financial institutions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-building-columns text-accent"></i>Financial</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Upgrading of Backup Generator System with High Voltage Cable Installation in financial institutions</h3>
+            <p class="text-sm text-ink/55 mt-1">Financial institutions</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p06" id="proj-06" data-sector="commercial" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/6.Emergency%20Lighting%20Installation%20in%20commercial%20buildings.png" alt="Emergency Lighting Installation in commercial buildings" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-building text-accent"></i>Commercial</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Emergency Lighting Installation in commercial buildings</h3>
+            <p class="text-sm text-ink/55 mt-1">Commercial buildings</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p07" id="proj-07" data-sector="infrastructure" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/7.Replacement%20of%20Durasteel%20and%20associated%20E%26M%20works%20for%20Builders%20Lift%20in%20Tunnel.png" alt="Replacement of Durasteel and associated E&amp;M works for Builders Lift in Tunnel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-road text-accent"></i>Infrastructure</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Replacement of Durasteel and associated E&amp;M works for Builders Lift in Tunnel</h3>
+            <p class="text-sm text-ink/55 mt-1">Tunnel</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p08" id="proj-08" data-sector="financial" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/8.Escalators%20Replacement%20in%20financial%20institutions.png" alt="Escalators Replacement in financial institutions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-building-columns text-accent"></i>Financial</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Escalators Replacement in financial institutions</h3>
+            <p class="text-sm text-ink/55 mt-1">Financial institutions</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p09" id="proj-09" data-sector="commercial" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/9.Typhoon%20Shutter%20Replacement.png" alt="Typhoon Shutter Replacement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-building text-accent"></i>Commercial</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Typhoon Shutter Replacement</h3>
+            <p class="text-sm text-ink/55 mt-1">Typhoon shutter</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p10" id="proj-10" data-sector="financial" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/10.Main%20Switch%20Board%20Replacement%20in%20bank%20branches.png" alt="Main Switch Board Replacement in bank branches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-building-columns text-accent"></i>Financial</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Main Switch Board Replacement in bank branches</h3>
+            <p class="text-sm text-ink/55 mt-1">Bank branches</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p11" id="proj-11" data-sector="healthcare" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/11.Main%20Works%28E%26M%29%20%28Superstructure%20and%20Refurbishment%29%20for%20Hospital.png" alt="Main Works(E&amp;M) (Superstructure and Refurbishment) for Hospital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-hospital text-accent"></i>Healthcare</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Main Works(E&amp;M) (Superstructure and Refurbishment) for Hospital</h3>
+            <p class="text-sm text-ink/55 mt-1">Hospital</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html#p12" id="proj-12" data-sector="transport" class="proj-card block snap-start shrink-0 w-[86%] md:w-[46%] lg:w-[40%] group cursor-pointer">
+        <div class="relative overflow-hidden rounded-sm aspect-[4/3]">
+          <img src="Projects/Projects/12.Replacement%20of%20AHUs%20and%20PAUs%20in%20railway%20stations.png" alt="Replacement of AHUs and PAUs in railway stations" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/95 text-brand text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"><i class="fa-solid fa-train-subway text-accent"></i>Transport</span>
+        </div>
+        <div class="flex items-start justify-between gap-6 pt-6 border-b border-brand/15 pb-6">
+          <div class="min-w-0">
+            <h3 class="text-2xl text-brand leading-snug">Replacement of AHUs and PAUs in railway stations</h3>
+            <p class="text-sm text-ink/55 mt-1">Railway stations</p>
+          </div>
+          <span class="w-12 h-12 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors"><i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+        </div>
+      </a>
+      <div class="shrink-0 w-2 md:w-8"></div>
+    </div>
+    <p id="proj-empty" class="hidden w-full max-w-[1440px] mx-auto px-6 lg:px-14 text-ink/60">No projects in this sector yet.</p>
+
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+      <div class="w-full sm:max-w-md h-[2px] bg-brand/10"><div id="proj-progress" class="h-full bg-accent w-1/3 transition-all duration-500"></div></div>
+      <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="arrow-link inline-flex items-center gap-4 text-brand font-bold">View All Projects <span class="arrow-line h-[2px] bg-accent"></span></a>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news" class="py-24 md:py-32 bg-white">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div id="news-head" class="lg:col-span-4">
+        <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>News &amp; Insights</span>
+        <h2 class="text-4xl md:text-5xl text-brand leading-[1.1]">Read more about our recent news.</h2>
+        <a href="12-Crown%20Sky%20Engineering%20-%20News%20a.html" class="arrow-link inline-flex items-center gap-4 text-brand font-bold mt-10">View All News <span class="arrow-line h-[2px] bg-accent"></span></a>
+      </div>
+
+      <div id="news-list" class="lg:col-span-8 grid grid-cols-1 md:grid-cols-5 gap-8">
+        <article id="news-featured" class="md:col-span-3 group cursor-pointer">
+          <div class="overflow-hidden rounded-sm aspect-[4/3]">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_edf2137b15_ae0bf994404210a2.png" alt="HKIA T2 expansion MVAC works" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          </div>
+          <div class="flex items-center gap-4 mt-6 text-xs font-bold uppercase tracking-widest">
+            <span class="text-accent">Projects</span><span class="w-6 h-px bg-brand/20"></span><span class="text-ink/50">12 May 2026</span>
+          </div>
+          <h3 class="text-2xl text-brand mt-3 leading-snug group-hover:text-accent transition-colors">HKIA T2M324: MVAC works on the Intermodal Transfer Terminal progress on schedule</h3>
+          <p class="text-ink/60 mt-3 leading-relaxed">Our team continues to deliver MVAC support for the airport's expansion, working inside a live 24-hour environment.</p>
+        </article>
+
+        <div class="md:col-span-2 flex flex-col">
+          <article id="news-mtr" class="group cursor-pointer pb-8 border-b border-brand/10">
+            <div class="overflow-hidden rounded-sm aspect-[16/10]">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_a2be35c460_08a34e92f4c18628.png" alt="MTR pipe replacement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+            </div>
+            <div class="flex items-center gap-4 mt-5 text-xs font-bold uppercase tracking-widest">
+              <span class="text-accent">Projects</span><span class="w-6 h-px bg-brand/20"></span><span class="text-ink/50">15 Apr 2026</span>
+            </div>
+            <h3 class="text-lg text-brand mt-3 leading-snug group-hover:text-accent transition-colors">MTR C8508-21E chilled &amp; condenser water pipe replacement begins</h3>
+          </article>
+          <article id="news-office" class="group cursor-pointer pt-8">
+            <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest">
+              <span class="text-accent">Company</span><span class="w-6 h-px bg-brand/20"></span><span class="text-ink/50">27 Nov 2025</span>
+            </div>
+            <h3 class="text-lg text-brand mt-3 leading-snug group-hover:text-accent transition-colors">Crown Sky celebrates the grand opening of our new Fo Tan office</h3>
+            <span class="inline-flex items-center gap-2 text-sm font-bold text-brand mt-5">Read story <i class="fa-solid fa-arrow-right text-accent text-xs group-hover:translate-x-1 transition-transform"></i></span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact strip -->
+  <section id="contact-strip" class="bg-accent">
+    <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 py-14 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+      <div>
+        <p class="text-[11px] font-bold uppercase tracking-[0.3em] text-white/70 mb-2">Crown Sky</p>
+        <h2 class="text-3xl md:text-4xl text-white leading-tight">Delivering Crown Standard of Engineering.</h2>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="mailto:info@crownsky.hk" class="inline-flex items-center gap-3 bg-white text-brand px-7 py-4 rounded-sm font-bold hover:bg-brand hover:text-white transition-colors"><i class="fa-solid fa-envelope text-accent"></i>info@crownsky.hk</a>
+        <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="inline-flex items-center gap-3 border-2 border-white text-white px-7 py-4 rounded-sm font-bold hover:bg-white hover:text-brand transition-colors">Submit an RFP <i class="fa-solid fa-arrow-right text-xs"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-brand-dark text-white pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-14 border-b border-white/10 pb-14">
+        <div id="footer-brand" class="lg:col-span-4">
+          <a href="11-Crown%20Sky%20Engineering%20-%20Home%20E.html" class="flex items-center gap-3 mb-6">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Ffb53067c-0efe-4a8d-87ac-62392bb36761.png" alt="Crown Sky logo" class="h-10 w-auto brightness-0 invert">
+            <span class="text-2xl font-black tracking-tighter">CROWN SKY</span>
+          </a>
+          <p class="text-accent text-sm font-bold tracking-wide mb-3" style="font-family: var(--font-hero);">Delivering Crown Standard of Engineering</p>
+          <p class="text-white/50 text-sm max-w-sm leading-relaxed">E&amp;M, HVAC, Builders Work, A&amp;A and Fit-Out Engineering. Registered Contractor with EMSD, CIC and BD in Hong Kong.</p>
+          <div id="footer-caring-org" class="mt-8 inline-flex items-center gap-4 bg-white rounded-sm py-3 pl-3 pr-5">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/M4sD0KZfZUdJjxvYxUaM7JeYtws1%2Fe046e575-9fbe-4200-b64c-acad71927ebc.png" alt="建造業關愛機構 Caring Organisation logo" class="h-16 w-auto">
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-accent">Recognised</p>
+              <p class="text-sm font-bold text-brand leading-snug mt-0.5">建造業關愛機構</p>
+              <p class="text-[11px] font-semibold text-ink/60 leading-snug">Caring Organisation in Construction</p>
+            </div>
+          </div>
+        </div>
+        <div id="footer-company" class="lg:col-span-2">
+          <h4 class="text-accent font-black uppercase text-xs tracking-widest mb-6">Company</h4>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li><a href="1-Crown%20Sky%20Engineering%20-%20About.html" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="10-Crown%20Sky%20Engineering%20-%20Leader.html" class="hover:text-white transition-colors">Leadership</a></li>
+            <li><a href="3-Crown%20Sky%20Engineering%20-%20Compan.html" class="hover:text-white transition-colors">Milestones</a></li>
+            <li><a href="2-Crown%20Sky%20Engineering%20-%20Awards.html" class="hover:text-white transition-colors">Awards &amp; Recognition</a></li>
+            <li><a href="8-Crown%20Sky%20Engineering%20-%20Career.html" class="hover:text-white transition-colors">Careers</a></li>
+          </ul>
+        </div>
+        <div id="footer-expertise" class="lg:col-span-2">
+          <h4 class="text-accent font-black uppercase text-xs tracking-widest mb-6">Expertise</h4>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li><a href="4-Crown%20Sky%20Engineering%20-%20Our%20Se.html" class="hover:text-white transition-colors">Our Services</a></li>
+            <li><a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="hover:text-white transition-colors">Our Projects</a></li>
+            <li><a href="6-Crown%20Sky%20Engineering%20-%20Sustai.html" class="hover:text-white transition-colors">Sustainability</a></li>
+            <li><a href="12-Crown%20Sky%20Engineering%20-%20News%20a.html" class="hover:text-white transition-colors">News &amp; Insights</a></li>
+          </ul>
+        </div>
+        <div id="footer-connect" class="md:col-span-2 lg:col-span-4">
+          <h4 class="text-accent font-black uppercase text-xs tracking-widest mb-6">Get Connected</h4>
+          <div class="space-y-4 text-sm text-white/70">
+            <div class="flex items-start gap-4"><i class="fa-solid fa-location-dot text-accent mt-1 w-4"></i><span>Flat 15-16, 10/F, Block B, Veristrong Industrial Centre, 34-36 Au Pui Wan Street, Fo Tan, N.T., Hong Kong</span></div>
+            <div class="flex items-center gap-4"><i class="fa-solid fa-phone text-accent w-4"></i><a href="tel:+85236190396" class="hover:text-white">+852 3619 0396</a></div>
+            <div class="flex items-center gap-4"><i class="fa-solid fa-envelope text-accent w-4"></i><a href="mailto:info@crownsky.hk" class="hover:text-white">info@crownsky.hk</a></div>
+          </div>
+          <div class="flex gap-3 mt-6">
+      <a href="#" class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center hover:bg-accent transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center hover:bg-accent transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center hover:bg-accent transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div id="footer-iso" class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+        <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-accent shrink-0">ISO Certified</p>
+        <div class="flex flex-wrap items-end gap-4 sm:gap-6">
+          <a href="images/286-c%20ICA%209K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" target="_blank" rel="noopener" class="group block">
+            <img src="images/286-c%20ICA%209K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" alt="ISO 9001:2015 Quality Management System certificate" class="h-28 sm:h-32 w-auto rounded-sm border border-white/10 bg-white" loading="lazy">
+            <span class="mt-2 block text-[11px] font-bold text-white/70 group-hover:text-accent transition-colors">ISO 9001:2015</span>
+          </a>
+          <a href="images/287-c%20ICA%2014K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" target="_blank" rel="noopener" class="group block">
+            <img src="images/287-c%20ICA%2014K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" alt="ISO 14001:2015 Environmental Management System certificate" class="h-28 sm:h-32 w-auto rounded-sm border border-white/10 bg-white" loading="lazy">
+            <span class="mt-2 block text-[11px] font-bold text-white/70 group-hover:text-accent transition-colors">ISO 14001:2015</span>
+          </a>
+          <a href="images/288-c%20ICA%2045K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" target="_blank" rel="noopener" class="group block">
+            <img src="images/288-c%20ICA%2045K%20p-cert%20to%20Crown%20Sky%202026%20R1.png" alt="ISO 45001:2018 Occupational Health and Safety Management System certificate" class="h-28 sm:h-32 w-auto rounded-sm border border-white/10 bg-white" loading="lazy">
+            <span class="mt-2 block text-[11px] font-bold text-white/70 group-hover:text-accent transition-colors">ISO 45001:2018</span>
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs">
+        <span>© 2026 Crown Sky Engineering Limited. All rights reserved.</span>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+          <a href="9-Crown%20Sky%20Engineering%20-%20Contac.html" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Safety & Certification modal -->
+  <div id="cert-modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-4 md:p-8" role="dialog" aria-modal="true" aria-labelledby="cert-title">
+    <div id="cert-backdrop" class="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm"></div>
+    <div id="cert-panel" class="relative w-full max-w-5xl max-h-[88vh] bg-white rounded-sm shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
+      <!-- Sidebar -->
+      <aside id="cert-sidebar" class="md:col-span-4 bg-brand text-white p-7 md:p-9 flex flex-col">
+        <span class="inline-flex items-center gap-3 text-accent text-[11px] font-bold uppercase tracking-[0.3em]"><span class="w-6 h-px bg-accent"></span>Technical Brief</span>
+        <h2 id="cert-title" class="text-2xl md:text-3xl leading-tight mt-4">Safety &amp; Certification</h2>
+        <p class="text-white/60 text-sm leading-relaxed mt-3">How our management systems, registrations and site rules keep every project safe, on time and to specification.</p>
+        <nav id="cert-tabs" class="mt-8 flex md:flex-col gap-2 overflow-x-auto no-scrollbar">
+          <button type="button" data-cert-tab="iso" class="cert-tab shrink-0 flex items-center gap-3 text-left px-4 py-3.5 rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-certificate w-4 text-accent"></i>ISO Standards</button>
+          <button type="button" data-cert-tab="guarantees" class="cert-tab shrink-0 flex items-center gap-3 text-left px-4 py-3.5 rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-scale-balanced w-4 text-accent"></i>Three Non-Guarantees</button>
+          <button type="button" data-cert-tab="registrations" class="cert-tab shrink-0 flex items-center gap-3 text-left px-4 py-3.5 rounded-sm text-sm font-bold transition-colors"><i class="fa-solid fa-id-card w-4 text-accent"></i>Registrations</button>
+        </nav>
+        <div class="hidden md:block mt-auto pt-8 border-t border-white/10">
+          <p class="text-[11px] font-bold uppercase tracking-[0.25em] text-white/40">Need certificates for a tender?</p>
+          <a href="mailto:info@crownsky.hk" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-accent mt-2"><i class="fa-solid fa-envelope text-accent"></i>info@crownsky.hk</a>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <div id="cert-content" class="md:col-span-8 relative overflow-y-auto max-h-[60vh] md:max-h-[88vh]">
+        <button type="button" id="cert-close" class="absolute top-5 right-5 z-10 w-11 h-11 rounded-full bg-brand-light text-brand flex items-center justify-center hover:bg-accent hover:text-white transition-colors" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+
+        <!-- ISO -->
+        <section data-cert-pane="iso" class="cert-pane p-7 md:p-10">
+          <p class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent">Integrated Management System</p>
+          <h3 class="text-2xl md:text-3xl text-brand mt-2 pr-14">Certified to international standards</h3>
+          <p class="text-ink/65 leading-relaxed mt-3">Our management system is audited annually by an accredited third-party body and applied on every site, from tender to handover.</p>
+
+          <div class="mt-8 space-y-4">
+            <article class="border border-brand/10 rounded-sm p-6 border-l-4 border-l-accent">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h4 class="text-lg text-brand flex items-center gap-3"><i class="fa-solid fa-shield-halved text-accent"></i>ISO 45001:2018</h4>
+                <span class="text-[10px] font-bold uppercase tracking-widest bg-accent/10 text-accent px-3 py-1 rounded-sm">Occupational Health &amp; Safety</span>
+              </div>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-4 text-sm text-ink/70">
+                <li class="flex gap-2"><i class="fa-solid fa-check text-accent mt-1 text-xs"></i>Task-specific risk assessments &amp; method statements</li>
+                <li class="flex gap-2"><i class="fa-solid fa-check text-accent mt-1 text-xs"></i>Permit-to-work for hot work, confined space &amp; height</li>
+                <li class="flex gap-2"><i class="fa-solid fa-check text-accent mt-1 text-xs"></i>Daily toolbox talks &amp; weekly site inspections</li>
+                <li class="flex gap-2"><i class="fa-solid fa-check text-accent mt-1 text-xs"></i>Near-miss reporting &amp; root-cause investigation</li>
+              </ul>
+            </article>
+            <article class="border border-brand/10 rounded-sm p-6">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h4 class="text-lg text-brand flex items-center gap-3"><i class="fa-solid fa-medal text-accent"></i>ISO 9001:2015</h4>
+                <span class="text-[10px] font-bold uppercase tracking-widest bg-brand-light text-brand px-3 py-1 rounded-sm">Quality Management</span>
+              </div>
+              <p class="text-sm text-ink/70 leading-relaxed mt-3">Inspection &amp; test plans, material approval and hold points ensure every MVAC and A&amp;A installation is verified before handover.</p>
+            </article>
+            <article class="border border-brand/10 rounded-sm p-6">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h4 class="text-lg text-brand flex items-center gap-3"><i class="fa-solid fa-leaf text-accent"></i>ISO 14001:2015</h4>
+                <span class="text-[10px] font-bold uppercase tracking-widest bg-brand-light text-brand px-3 py-1 rounded-sm">Environmental Management</span>
+              </div>
+              <p class="text-sm text-ink/70 leading-relaxed mt-3">Waste segregation, refrigerant recovery, noise and dust control plans for occupied and live environments.</p>
+            </article>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 gap-px bg-brand/10 rounded-sm overflow-hidden">
+            <div class="bg-brand-light p-5"><p class="text-3xl font-semibold text-brand" style="font-family: var(--font-hero);">100%</p><p class="text-[10px] font-bold uppercase tracking-widest text-ink/50 mt-1">Safety Score</p></div>
+            <div class="bg-brand-light p-5"><p class="text-3xl font-semibold text-brand" style="font-family: var(--font-hero);">0</p><p class="text-[10px] font-bold uppercase tracking-widest text-ink/50 mt-1">Lost-time Accidents</p></div>
+            <div class="bg-brand-light p-5"><p class="text-3xl font-semibold text-brand" style="font-family: var(--font-hero);">Annual</p><p class="text-[10px] font-bold uppercase tracking-widest text-ink/50 mt-1">External Audit</p></div>
+          </div>
+        </section>
+
+        <!-- Three Non-Guarantees -->
+        <section data-cert-pane="guarantees" class="cert-pane hidden p-7 md:p-10">
+          <p class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent">Our Operating Promise</p>
+          <h3 class="text-2xl md:text-3xl text-brand mt-2 pr-14">The “Three Non-Guarantees”</h3>
+          <p class="text-ink/65 leading-relaxed mt-3">Three simple rules every engineer, supervisor and subcontractor signs up to — backed by measurable controls on site.</p>
+
+          <ol class="mt-8 space-y-4">
+            <li class="grid grid-cols-[auto_1fr] gap-5 border border-brand/10 rounded-sm p-6">
+              <span class="w-12 h-12 rounded-sm bg-brand text-white flex items-center justify-center font-bold" style="font-family: var(--font-hero);">01</span>
+              <div>
+                <h4 class="text-lg text-brand">No cutting corners</h4>
+                <p class="text-sm text-ink/70 leading-relaxed mt-1">Work follows approved shop drawings, specifications and method statements — no unapproved substitutions.</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="text-[11px] font-bold text-brand bg-brand-light px-3 py-1 rounded-sm">Material approval</span>
+                  <span class="text-[11px] font-bold text-brand bg-brand-light px-3 py-1 rounded-sm">Inspection &amp; test plans</span>
+                  <span class="text-[11px] font-bold text-brand bg-brand-light px-3 py-1 rounded-sm">T&amp;C records</span>
+                </div>
+              </div>
+            </li>
+            <li class="grid grid-cols-[auto_1fr] gap-5 border border-brand/10 rounded-sm p-6">
+              <span class="w-12 h-12 rounded-sm bg-brand text-white flex items-center justify-center font-bold" style="font-family: var(--font-hero);">02</span>
+              <div>
+                <h4 class="text-lg text-brand">No delays</h4>
+                <p class="text-sm text-ink/70 leading-relaxed mt-1">Programmes are tracked weekly against milestones, with in-house ductwork fabrication in Zhuhai and Hong Kong securing supply.</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="text-[11px] font-bold text-brand bg-brand-light px-3 py-1 rounded-sm">3-week look-ahead</span>
+                  <span class="text-[11px] font-bold text-brand bg-brand-light px-3 py-1 rounded-sm">In-house fabrication</span>
+                  <span class="text-[11px] font-bold text-brand bg-brand-light px-3 py-1 rounded-sm">Weekly progress reports</span>
+                </div>
+              </div>
+            </li>
+            <li class="grid grid-cols-[auto_1fr] gap-5 border border-accent/40 bg-accent/5 rounded-sm p-6">
+              <span class="w-12 h-12 rounded-sm bg-accent text-white flex items-center justify-center font-bold" style="font-family: var(--font-hero);">03</span>
+              <div>
+                <h4 class="text-lg text-brand">No accidents</h4>
+                <p class="text-sm text-ink/70 leading-relaxed mt-1">An ISO 45001 occupational health and safety system applied on our sites.</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="text-[11px] font-bold text-brand bg-white px-3 py-1 rounded-sm">Permit-to-work</span>
+                  <span class="text-[11px] font-bold text-brand bg-white px-3 py-1 rounded-sm">ISO 45001:2018</span>
+                  <span class="text-[11px] font-bold text-brand bg-white px-3 py-1 rounded-sm">Safety drills</span>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Registrations -->
+        <section data-cert-pane="registrations" class="cert-pane hidden p-7 md:p-10">
+          <p class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent">Licences &amp; Registrations</p>
+          <h3 class="text-2xl md:text-3xl text-brand mt-2 pr-14">Registered with Hong Kong authorities</h3>
+          <p class="text-ink/65 leading-relaxed mt-3">Registered Contractor with EMSD, CIC and BD in Hong Kong.</p>
+          <div class="mt-8 divide-y divide-brand/10 border-y border-brand/10">
+            <div class="flex items-center justify-between gap-6 py-5">
+              <div><h4 class="text-brand">EMSD — Registered Electrical Contractor</h4><p class="text-sm text-ink/60 mt-1">Registration no. 035303 · valid to March 2027</p></div>
+              <span class="shrink-0 inline-flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-sm"><i class="fa-solid fa-circle-check"></i>Active</span>
+            </div>
+            <div class="flex items-center justify-between gap-6 py-5">
+              <div><h4 class="text-brand">CIC — Construction Industry Council</h4><p class="text-sm text-ink/60 mt-1">Registered subcontractor</p></div>
+              <span class="shrink-0 inline-flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-sm"><i class="fa-solid fa-circle-check"></i>Active</span>
+            </div>
+            <div class="flex items-center justify-between gap-6 py-5">
+              <div><h4 class="text-brand">BD — Buildings Department</h4><p class="text-sm text-ink/60 mt-1">Registered minor works contractor</p></div>
+              <span class="shrink-0 inline-flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-sm"><i class="fa-solid fa-circle-check"></i>Active</span>
+            </div>
+            <div class="flex items-center justify-between gap-6 py-5">
+              <div><h4 class="text-brand">建造業關愛機構 Caring Organisation</h4><p class="text-sm text-ink/60 mt-1">Recognised Caring Organisation in Construction</p></div>
+              <span class="shrink-0 inline-flex items-center gap-2 text-xs font-bold text-accent bg-accent/10 px-3 py-1.5 rounded-sm"><i class="fa-solid fa-award"></i>Recognised</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Header state
+    const header = document.getElementById('header');
+    const setHeader = () => {
+      if (window.scrollY > 60) { header.classList.add('scrolled'); header.classList.replace('py-2.5', 'py-2'); }
+      else { header.classList.remove('scrolled'); header.classList.replace('py-2', 'py-2.5'); }
+    };
+    window.addEventListener('scroll', setHeader); setHeader();
+
+    // Mobile menu
+    const menu = document.getElementById('mobile-menu');
+    const openMenu = () => { menu.classList.remove('hidden'); menu.classList.add('flex'); };
+    const closeMenu = () => { menu.classList.add('hidden'); menu.classList.remove('flex'); };
+    document.getElementById('menu-btn').addEventListener('click', openMenu);
+    document.getElementById('menu-close').addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav-acc').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const willOpen = panel.classList.contains('hidden');
+        panel.classList.toggle('hidden', !willOpen);
+        panel.classList.toggle('flex', willOpen);
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        const icon = btn.querySelector('i');
+        if (icon) icon.classList.toggle('rotate-180', willOpen);
+      });
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+
+    // Hero slideshow
+    const slides = document.querySelectorAll('.hero-slide');
+    const bars = document.querySelectorAll('.hero-bar');
+    let heroIdx = 0, heroTimer;
+    const goSlide = (i) => {
+      heroIdx = i;
+      slides.forEach((s, n) => s.classList.toggle('active', n === i));
+      bars.forEach((b, n) => {
+        b.classList.remove('active', 'done');
+        void b.offsetWidth;
+        if (n < i) b.classList.add('done');
+        if (n === i) b.classList.add('active');
+      });
+      clearTimeout(heroTimer);
+      heroTimer = setTimeout(() => goSlide((heroIdx + 1) % slides.length), 6000);
+    };
+    bars.forEach(b => b.addEventListener('click', () => goSlide(parseInt(b.dataset.slide))));
+    goSlide(0);
+
+    // Service panels
+    const panels = document.querySelectorAll('.svc-panel');
+    const panelWrap = document.getElementById('service-panels');
+    panels.forEach((p, i) => {
+      const activate = () => { panels.forEach(o => o.classList.toggle('active', o === p)); panelWrap.dataset.active = i; };
+      p.addEventListener('mouseenter', activate);
+      p.addEventListener('click', activate);
+    });
+
+    // Project slider
+    const scroller = document.getElementById('project-scroller');
+    const allCards = [...scroller.querySelectorAll('.proj-card')];
+    const current = document.getElementById('proj-current');
+    const total = document.getElementById('proj-total');
+    const progress = document.getElementById('proj-progress');
+    const emptyMsg = document.getElementById('proj-empty');
+    const visibleCards = () => allCards.filter(c => !c.classList.contains('is-hidden'));
+    const cardStep = () => { const v = visibleCards(); return v.length ? v[0].getBoundingClientRect().width + parseFloat(getComputedStyle(scroller).columnGap || 24) : 0; };
+    const updateSlider = () => {
+      const v = visibleCards();
+      const max = scroller.scrollWidth - scroller.clientWidth;
+      const ratio = max > 0 ? scroller.scrollLeft / max : 0;
+      const idx = v.length ? Math.min(v.length - 1, Math.round(ratio * (v.length - 1))) : 0;
+      current.textContent = String(v.length ? idx + 1 : 0).padStart(2, '0');
+      total.textContent = String(v.length).padStart(2, '0');
+      progress.style.width = (v.length ? (idx + 1) / v.length * 100 : 0) + '%';
+    };
+    document.getElementById('proj-next').addEventListener('click', () => scroller.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+    document.getElementById('proj-prev').addEventListener('click', () => scroller.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+    scroller.addEventListener('scroll', updateSlider);
+
+    // Sector filter
+    const filters = document.querySelectorAll('.proj-filter');
+    filters.forEach(btn => btn.addEventListener('click', () => {
+      const key = btn.dataset.filter;
+      filters.forEach(f => { f.classList.toggle('active', f === btn); f.setAttribute('aria-selected', f === btn); });
+      allCards.forEach(c => {
+        const show = key === 'all' || c.dataset.sector === key;
+        c.classList.toggle('is-hidden', !show);
+        c.classList.remove('is-in');
+        if (show) { void c.offsetWidth; c.classList.add('is-in'); }
+      });
+      emptyMsg.classList.toggle('hidden', visibleCards().length > 0);
+      scroller.scrollTo({ left: 0, behavior: 'auto' });
+      updateSlider();
+    }));
+    updateSlider();
+
+    // Smart site monitor
+    const ssData = [
+      { cam: 'Dashboard', box: ['8%','18%','84%','28%'], label: 'Total waste · 2,529.56 ton', r1l: 'Diversion', r1: '21.83%', r1c: 'text-emerald-400', r2l: 'Recycled', r2: '19.69%', r3l: 'Reused saving', r3: '$168,516' },
+      { cam: 'Repository', box: ['28%','22%','44%','46%'], label: 'Capture · store · analyse · report', r1l: 'Record', r1: 'One place', r1c: 'text-emerald-400', r2l: 'Landfill', r2: '78.17%', r3l: 'Reused', r3: '2.08%' },
+      { cam: 'Mobile', box: ['30%','16%','40%','58%'], label: 'Any device · any location', r1l: 'Diversion', r1: '21.83%', r1c: 'text-emerald-400', r2l: 'Recycled', r2: '19.69%', r3l: 'Access', r3: 'Cloud' },
+      { cam: 'Projects', box: ['4%','12%','92%','18%'], label: 'Waste reported by project', r1l: 'Diversion', r1: '21.83%', r1c: 'text-emerald-400', r2l: 'Recycled', r2: '19.69%', r3l: 'Reused saving', r3: '$168,516' }
+    ];
+    const ssTabs = document.querySelectorAll('.ss-tab');
+    const ssVisuals = document.querySelectorAll('.ss-visual');
+    const ssDetect = document.getElementById('ss-detect');
+    let ssIdx = 0, ssTimer;
+    const showSS = (i) => {
+      ssIdx = i; const d = ssData[i];
+      ssTabs.forEach((t, n) => t.classList.toggle('active', n === i));
+      ssVisuals.forEach((v, n) => v.classList.toggle('active', n === i));
+      document.getElementById('ss-cam').textContent = d.cam;
+      [ssDetect.style.left, ssDetect.style.top, ssDetect.style.width, ssDetect.style.height] = d.box;
+      document.getElementById('ss-detect-label').textContent = d.label;
+      const r1 = document.getElementById('ss-r1');
+      r1.textContent = d.r1; r1.className = 'text-base md:text-lg font-semibold mt-1 ' + d.r1c;
+      document.getElementById('ss-r1l').textContent = d.r1l;
+      document.getElementById('ss-r2l').textContent = d.r2l;
+      document.getElementById('ss-r2').textContent = d.r2;
+      document.getElementById('ss-r3l').textContent = d.r3l;
+      document.getElementById('ss-r3').textContent = d.r3;
+      clearTimeout(ssTimer);
+      ssTimer = setTimeout(() => showSS((ssIdx + 1) % ssData.length), 7000);
+    };
+    ssTabs.forEach((t, i) => t.addEventListener('click', () => showSS(i)));
+    showSS(0);
+    const ssClock = document.getElementById('ss-clock');
+    setInterval(() => { const d = new Date(); ssClock.textContent = d.toTimeString().slice(0, 8); }, 1000);
+
+    // Safety & Certification modal
+    const certModal = document.getElementById('cert-modal');
+    const certTabs = document.querySelectorAll('.cert-tab');
+    const certPanes = document.querySelectorAll('.cert-pane');
+    const showCertTab = (key) => {
+      certTabs.forEach(t => t.classList.toggle('active', t.dataset.certTab === key));
+      certPanes.forEach(p => p.classList.toggle('hidden', p.dataset.certPane !== key));
+      document.getElementById('cert-content').scrollTop = 0;
+    };
+    const openCert = (key) => {
+      showCertTab(key || 'iso');
+      certModal.classList.remove('hidden'); certModal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    };
+    const closeCert = () => {
+      certModal.classList.add('hidden'); certModal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    };
+    document.querySelectorAll('[data-open-cert]').forEach(el => el.addEventListener('click', () => openCert(el.dataset.openCert)));
+    certTabs.forEach(t => t.addEventListener('click', () => showCertTab(t.dataset.certTab)));
+    document.getElementById('cert-close').addEventListener('click', closeCert);
+    document.getElementById('cert-backdrop').addEventListener('click', closeCert);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCert(); });
+
+    // Counters
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.target);
+      const start = target > 1000 ? target - 40 : 0;
+      const t0 = performance.now(), dur = 1800;
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(start + (target - start) * eased);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.counter').forEach(c => io.observe(c));
+  </script>
+</body>
+</html>
