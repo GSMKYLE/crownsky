@@ -1,15 +1,15 @@
 [
   {
-    "src": "images/approved/caring-construction.jpg",
-    "alt": "Caring Organisation in Construction"
+    "src": "images/approved/Heart caring.png",
+    "alt": "Heart Caring Charter"
   },
   {
     "src": "images/approved/cpas.jpg",
     "alt": "Construction Industry Integrity Charter 2.0"
   },
   {
-    "src": "images/approved/heart-caring.jpg",
-    "alt": "Heart Caring Company"
+    "src": "images/approved/harmony.jpg",
+    "alt": "Harmony@Workplace Organisation — 融合職場機構"
   },
   {
     "src": "images/approved/heart-caring-plus.jpg",
@@ -28,10 +28,6 @@
     "alt": "Energy Saving Charter 2026"
   },
   {
-    "src": "images/approved/harmony.jpg",
-    "alt": "Harmony@Workplace Organisation"
-  },
-  {
     "src": "images/approved/mental-health.jpg",
     "alt": "Mental Health Friendly Organisation"
   },
@@ -42,5 +38,9 @@
   {
     "src": "images/approved/racial-diversity.jpg",
     "alt": "Racial Diversity and Inclusion in the Workplace"
+  },
+  {
+    "src": "images/approved/caring-construction.jpg",
+    "alt": "建造業關愛機構 — Caring Organisation in Construction"
   }
 ]

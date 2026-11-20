@@ -8,8 +8,8 @@
       </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="site-content.css?v=20261111">
-  <script src="site-content.js?v=20261111"></script>
+  <link rel="stylesheet" href="site-content.css?v=20261120-3">
+  <script src="site-content.js?v=20261120-3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News &amp; Insights</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -58,6 +58,10 @@
     .meta { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .9rem; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
     .meta .tag { color: #c9973f; }
     .meta .rt i { margin-right: .35rem; }
+    @media (max-width: 374px) {
+      #rel-wrap .related-list-item { gap: .75rem; }
+      #rel-wrap .related-thumbnail { width: 4.5rem; }
+    }
 
     .chip { color: #0f3557; border-color: rgba(15,53,87,.15); }
     .chip:hover { border-color: #c9973f; }
@@ -209,8 +213,8 @@
       </a>
       <div class="lg:col-span-5 pt-8 lg:pt-0">
         <div class="meta text-ink/50"><span class="tag">Projects</span><span>12 May 2026</span><span class="rt"><i class="fa-regular fa-clock"></i>4 min read</span></div>
-        <h2 class="text-3xl md:text-[2.6rem] text-brand mt-5 leading-[1.15]">HKIA T2M324: MVAC works on the Intermodal Transfer Terminal progress on schedule</h2>
-        <p class="text-ink/65 text-lg leading-relaxed mt-6">Our team continues to deliver MVAC support for the airport's expansion, working inside a live 24-hour environment.</p>
+        <h2 class="text-3xl md:text-[2.6rem] text-brand mt-5 leading-[1.15]">HKIA T2M324: HVAC works on the Intermodal Transfer Terminal progress on schedule</h2>
+        <p class="text-ink/65 text-lg leading-relaxed mt-6">Our team continues to deliver HVAC support for the airport's expansion, working inside a live 24-hour environment.</p>
         <div class="mt-10 flex flex-wrap items-center gap-x-10 gap-y-5">
           <a href="5-Crown%20Sky%20Engineering%20-%20Projec.html" class="inline-flex items-center gap-3 bg-brand text-white px-7 py-4 rounded-sm font-bold hover:bg-accent transition-colors">Read the story <i class="fa-solid fa-arrow-right text-xs"></i></a>
           <a href="#newsroom" class="arrow-link inline-flex items-center gap-4 text-brand font-bold">All news <span class="arrow-line h-[2px] bg-accent"></span></a>
@@ -364,12 +368,12 @@
 
         <!-- Production line -->
         <a href="#" class="card group md:col-span-8 min-h-[320px] relative rounded-sm overflow-hidden" data-cat="company" data-text="zhuhai factory hong kong workshop production line ductwork metal fittings">
-          <img src="images/people/workshop.png?v=3" alt="Ductwork workshop" class="zoom absolute inset-0 w-full h-full object-cover">
+          <img src="images/approved/ductwork-production.jpg" alt="Sheet-metal forming equipment for ductwork fabrication" class="zoom absolute inset-0 w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/70 to-brand-dark/10"></div>
           <div class="absolute inset-y-0 left-0 p-8 md:p-10 flex flex-col justify-center max-w-md">
             <div class="meta text-white/70"><span class="tag">Company</span><span>30 Jan 2026</span><span class="rt"><i class="fa-regular fa-clock"></i>4 min</span></div>
             <h3 class="text-2xl md:text-3xl text-white mt-3 leading-tight">Zhuhai factory and HK workshop keep ductwork supply on track</h3>
-            <p class="text-white/70 mt-3 leading-relaxed">In-house production of MVAC ductwork and metal fittings supports every frontline project.</p>
+            <p class="text-white/70 mt-3 leading-relaxed">In-house production of HVAC ductwork and metal fittings supports every frontline project.</p>
             <span class="inline-flex items-center gap-4 text-white font-bold text-sm mt-6">Read more <span class="w-10 h-[2px] bg-accent"></span></span>
           </div>
         </a>
@@ -414,7 +418,7 @@
         <ul class="border-t border-white/15">
           <li>
       <a href="#" class="group grid grid-cols-1 sm:grid-cols-[14rem_1fr_auto] gap-6 items-center py-8 border-b border-white/15">
-              <div class="h-40 rounded-sm overflow-hidden"><img src="images/people/tunnel.png?v=3" alt="Plant room works" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
+              <div class="h-40 rounded-sm overflow-hidden"><img src="images/approved/railway-pipework.jpg" alt="Building services pipework at Admiralty Station" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
               <div>
                 <div class="meta text-white/50"><span class="tag">Technical</span><span class="rt"><i class="fa-regular fa-clock"></i>7 min read</span></div>
                 <h3 class="text-2xl mt-2 leading-snug">Replacing chilled water pipework without switching off a railway</h3>
@@ -438,7 +442,7 @@
               <div class="h-40 rounded-sm overflow-hidden"><img src="images/people/maint.png?v=3" alt="Maintenance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
               <div>
                 <div class="meta text-white/50"><span class="tag">Sustainability</span><span class="rt"><i class="fa-regular fa-clock"></i>6 min read</span></div>
-                <h3 class="text-2xl mt-2 leading-snug">Retrofitting ageing MVAC plant for lower energy use</h3>
+                <h3 class="text-2xl mt-2 leading-snug">Retrofitting ageing HVAC plant for lower energy use</h3>
                 <p class="text-white/60 mt-2 leading-relaxed">Where the quickest efficiency wins are hiding in existing commercial buildings.</p>
               </div>
               <span class="hidden sm:flex w-12 h-12 rounded-full border border-white/20 items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors"><i class="fa-solid fa-arrow-right"></i></span>
@@ -454,13 +458,13 @@
     <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-6">
         <p class="text-[11px] font-bold uppercase tracking-[0.3em] text-white/75 mb-2">Stay Informed · Delivering Crown Standard of Engineering</p>
-        <h2 class="text-3xl md:text-4xl text-white leading-tight">Project news and insights, once a month.</h2>
+        <h2 class="text-3xl md:text-4xl text-white leading-tight">Send us your contact details.</h2>
       </div>
-      <form id="nl-form" class="lg:col-span-6 flex flex-col sm:flex-row flex-wrap gap-3">
+      <form id="nl-form" action="mailto:info@crownsky.hk" class="lg:col-span-6 flex flex-col sm:flex-row flex-wrap gap-3">
         <label for="nl-email" class="sr-only">Email address</label>
         <input id="nl-email" type="email" required placeholder="you@company.com" class="flex-1 bg-white rounded-sm px-5 py-4 text-sm text-brand placeholder-brand/40 focus:outline-none focus:ring-2 focus:ring-brand">
-        <button class="bg-brand text-white px-8 py-4 rounded-sm text-sm font-bold hover:bg-white hover:text-brand transition-colors">Subscribe</button>
-        <p id="nl-msg" class="hidden basis-full text-sm text-white font-bold"><i class="fa-solid fa-circle-check mr-2"></i>Thanks — you're on the list.</p>
+        <button class="bg-brand text-white px-8 py-4 rounded-sm text-sm font-bold hover:bg-white hover:text-brand transition-colors">Send by email</button>
+        <p id="nl-msg" role="status" class="hidden basis-full text-sm text-white font-bold">Send the draft in your email app to complete your enquiry.</p>
       </form>
     </div>
   </section>
@@ -563,7 +567,12 @@
       if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); document.querySelector(id).scrollIntoView({ behavior: 'smooth' }); }
     }));
 
-    document.getElementById('nl-form').addEventListener('submit', (e) => { e.preventDefault(); document.getElementById('nl-msg').classList.remove('hidden'); });
+    document.getElementById('nl-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('nl-email').value.trim();
+      window.location.href = `${e.currentTarget.action}?subject=${encodeURIComponent('Crown Sky news and insights')}&body=${encodeURIComponent(`Please send me Crown Sky news and insights at ${email}.`)}`;
+      document.getElementById('nl-msg').classList.remove('hidden');
+    });
 
     /* Featured carousel */
     const featured = document.getElementById('featured');
@@ -620,15 +629,14 @@
     });
 
     /* Related articles */
-    const IMG = 'https://storage.googleapis.com/uxpilot-auth.appspot.com/';
     const related = [
-      { cat: 'projects', label: 'Projects', title: 'Inside a live-terminal chiller upgrade at HKIA', time: 5, img: IMG + 'gen_edf2137b15_ae0bf994404210a2.png', excerpt: 'Night shifts, noise limits and airside permits — how the team kept the terminal cool throughout.' },
-      { cat: 'projects', label: 'Projects', title: 'MTR M1099: two years of building services maintenance', time: 4, img: 'images/people/tunnel.png?v=3', excerpt: '' },
+      { cat: 'company', label: 'Company', title: 'Crown Sky signs the Talent-Wise Employment Charter', time: 1, img: 'images/approved/office-meeting.jpg', url: 'https://www.instagram.com/crownskyhk/p/DfROi5UM99I/', excerpt: 'Crown Sky joins the Labour and Welfare Bureau’s charter as part of its commitment to an inclusive workplace.' },
+      { cat: 'projects', label: 'Projects', title: 'MTR M1099: two years of building services maintenance', time: 4, img: 'images/approved/railway-maintenance.jpg', imageAlt: 'Illustrative Crown Sky railway station maintenance works', excerpt: '' },
       { cat: 'certifications', label: 'Certifications', title: 'What ISO 45001 changes on a working site', time: 4, img: 'images/people/maint.png?v=3', excerpt: 'The practical difference an occupational safety system makes for frontline crews.' },
       { cat: 'certifications', label: 'Certifications', title: 'CPAS scoring explained for clients', time: 3, img: 'images/people/plant.png?v=3', excerpt: '' },
       { cat: 'safety', label: 'Safety', title: 'Near-miss reporting: our first-year numbers', time: 3, img: 'images/people/career.png?v=3', excerpt: 'How a simple reporting habit cut repeat hazards across our sites.' },
       { cat: 'safety', label: 'Safety', title: 'Working at height in congested plant rooms', time: 5, img: 'images/people/mep.png?v=3', excerpt: '' },
-      { cat: 'company', label: 'Company', title: 'Meet the Zhuhai fabrication team', time: 4, img: 'images/people/workshop.png?v=3', excerpt: 'The people behind every length of ductwork that reaches our Hong Kong sites.' },
+      { cat: 'company', label: 'Company', title: 'Meet the Zhuhai fabrication team', time: 4, img: 'images/approved/ductwork-production.jpg', excerpt: 'The people behind every length of ductwork that reaches our Hong Kong sites.' },
       { cat: 'company', label: 'Company', title: 'Graduate engineer programme opens for 2026', time: 2, img: 'images/people/aa.png?v=3', excerpt: '' }
     ];
     const topicNames = { all: 'All topics', projects: 'Projects', certifications: 'Certifications', safety: 'Safety', company: 'Company' };
@@ -639,8 +647,8 @@
       const [lead, ...others] = list;
       const meta = (r, dark) => `<div class="meta ${dark ? 'text-white/60' : 'text-ink/50'}"><span class="tag">${r.label}</span><span class="rt"><i class="fa-regular fa-clock"></i>${r.time} min read</span></div>`;
       document.getElementById('rel-wrap').innerHTML =
-        `<a href="#" class="pop group lg:col-span-5 block">
-           <div class="overflow-hidden rounded-sm aspect-[16/11]"><img src="${lead.img}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
+        `<a href="${lead.url || '#'}" class="pop group lg:col-span-5 block">
+           <div class="overflow-hidden rounded-sm aspect-[16/11]"><img src="${lead.img}" alt="${lead.imageAlt || ''}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
            <div class="pt-6 pb-6 border-b border-brand/15">${meta(lead)}
              <h3 class="text-2xl text-brand mt-3 leading-tight">${lead.title}</h3>
              ${lead.excerpt ? `<p class="text-ink/60 mt-2 leading-relaxed">${lead.excerpt}</p>` : ''}
@@ -648,9 +656,9 @@
          </a>
          <div class="lg:col-span-7 flex flex-col border-t border-brand/15">` +
         others.map((r, i) =>
-          `<a href="#" class="pop group flex items-center gap-6 py-6 border-b border-brand/15" style="animation-delay:${(i + 1) * 80}ms">
+          `<a href="${r.url || '#'}" class="related-list-item pop group flex items-center gap-6 py-6 border-b border-brand/15" style="animation-delay:${(i + 1) * 80}ms">
              <span class="text-sm font-bold text-accent w-6">${String(i + 2).padStart(2, '0')}</span>
-             <div class="w-28 h-20 shrink-0 rounded-sm overflow-hidden"><img src="${r.img}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"></div>
+             <div class="related-thumbnail w-28 h-20 shrink-0 rounded-sm overflow-hidden"><img src="${r.img}" alt="${r.imageAlt || ''}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"></div>
              <div class="flex-1 min-w-0">${meta(r)}<h3 class="text-lg text-brand mt-2 leading-snug group-hover:text-accent transition-colors">${r.title}</h3></div>
              <span class="hidden sm:flex w-11 h-11 shrink-0 rounded-full border border-brand/20 items-center justify-center text-brand group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-colors"><i class="fa-solid fa-arrow-right text-xs"></i></span>
            </a>`).join('') + `</div>`;

@@ -8,8 +8,8 @@
       </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="site-content.css?v=20261111">
-  <script src="site-content.js?v=20261111"></script>
+  <link rel="stylesheet" href="site-content.css?v=20261120-3">
+  <script src="site-content.js?v=20261120-3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,6 +70,10 @@
     /* Values */
     .val-row .val-body { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .5s ease, opacity .4s ease; }
     .val-row.active .val-body { max-height: 140px; opacity: 1; }
+    .val-row.active #value-06, .val-row.active #value-07 { max-height: 250px; }
+    @media (max-width: 374px) {
+      #value-06, #value-07 { padding-left: 2rem; }
+    }
     .val-row.active .val-num { color: #c9973f; }
     .val-row.active .val-icon { transform: rotate(45deg); color: #c9973f; }
     .val-row.active { background: rgba(255,255,255,.04); }
@@ -220,11 +224,11 @@
           </div>
           <div class="col-span-4 flex flex-col gap-4">
             <div class="overflow-hidden rounded-sm">
-              <img src="images/people/detail.png?v=3" alt="Engineering detail" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-1000">
+              <img src="images/approved/switchboard.jpg" alt="Crown Sky main switchboard installation detail" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-1000">
             </div>
-            <div class="bg-brand text-white rounded-sm p-6">
-              <div class="text-4xl md:text-5xl text-accent leading-none font-hero" style="font-weight: 600;">10+</div>
-              <div class="text-[10px] font-bold tracking-[0.25em] uppercase text-white/60 mt-3">Years GBA Experience</div>
+            <div class="gba-experience-badge bg-brand text-white rounded-sm p-6">
+              <div class="text-4xl md:text-5xl text-accent leading-none font-hero" style="font-weight: 600;">20+</div>
+              <div class="gba-experience-label text-[10px] font-bold tracking-[0.25em] uppercase text-white/60 mt-3">Years GBA Experience</div>
             </div>
           </div>
         </div>
@@ -271,7 +275,7 @@
           </button>
           <button type="button" data-hub="1" class="hub-btn text-left border rounded-sm p-6 transition-all">
             <div class="flex items-center gap-4"><span class="hub-dot w-3 h-3 rounded-full bg-brand/20 transition-colors"></span><h3 class="text-xl text-brand flex-1">Zhuhai Fabrication Plant</h3><span class="text-xs font-bold text-ink/45">Est. 2014</span></div>
-            <p class="text-sm text-ink/60 mt-3 pl-7">Specialized MVAC fabrication and logistics center.</p>
+            <p class="text-sm text-ink/60 mt-3 pl-7">Specialized HVAC fabrication and logistics center.</p>
           </button>
           <button type="button" data-hub="2" class="hub-btn text-left border rounded-sm p-6 transition-all">
             <div class="flex items-center gap-4"><span class="hub-dot w-3 h-3 rounded-full bg-brand/20 transition-colors"></span><h3 class="text-xl text-brand flex-1">Macau Regional Support</h3><span class="text-xs font-bold text-ink/45">Est. 2006</span></div>
@@ -356,19 +360,23 @@
             </div>
             <div class="val-body pl-[6.5rem] md:pl-[7.5rem] pr-6"><p class="text-white/65 leading-relaxed pb-7">Embracing new engineering technologies and sustainable BIM-driven methodologies.</p></div>
           </li>
-          <li class="border-b border-white/15">
-            <div class="flex items-center gap-6 py-6 px-2 md:px-4 opacity-70 hover:opacity-100 transition-opacity">
-              <span class="text-sm font-bold text-white/40 tabular-nums w-6">06</span>
+          <li class="val-row border-b border-white/15 cursor-pointer transition-colors">
+            <h3><button type="button" aria-expanded="false" aria-controls="value-06" class="flex w-full items-center gap-6 py-7 px-2 md:px-4 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+              <span class="val-num text-sm font-bold text-white/40 tabular-nums w-6">06</span>
               <span class="w-12 h-12 shrink-0 rounded-sm bg-white/5 border border-white/15 flex items-center justify-center text-accent text-lg"><i class="fa-solid fa-user-tie"></i></span>
-              <h3 class="text-xl md:text-2xl flex-1">Professionalism</h3>
-            </div>
+              <span class="text-xl md:text-2xl flex-1 font-hero">Professionalism</span>
+              <i class="val-icon fa-solid fa-plus text-white/40 transition-transform" aria-hidden="true"></i>
+            </button></h3>
+            <div id="value-06" class="val-body pl-[6.5rem] md:pl-[7.5rem] pr-6" aria-hidden="true"><p class="text-white/65 leading-relaxed pb-7">Taking responsibility for our work, communicating clearly and meeting professional standards from planning to handover.</p></div>
           </li>
-          <li class="border-b border-white/15">
-            <div class="flex items-center gap-6 py-6 px-2 md:px-4 opacity-70 hover:opacity-100 transition-opacity">
-              <span class="text-sm font-bold text-white/40 tabular-nums w-6">07</span>
+          <li class="val-row border-b border-white/15 cursor-pointer transition-colors">
+            <h3><button type="button" aria-expanded="false" aria-controls="value-07" class="flex w-full items-center gap-6 py-7 px-2 md:px-4 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+              <span class="val-num text-sm font-bold text-white/40 tabular-nums w-6">07</span>
               <span class="w-12 h-12 shrink-0 rounded-sm bg-white/5 border border-white/15 flex items-center justify-center text-accent text-lg"><i class="fa-solid fa-arrows-rotate"></i></span>
-              <h3 class="text-xl md:text-2xl flex-1">Continuous Improvement</h3>
-            </div>
+              <span class="text-xl md:text-2xl flex-1 font-hero">Continuous Improvement</span>
+              <i class="val-icon fa-solid fa-plus text-white/40 transition-transform" aria-hidden="true"></i>
+            </button></h3>
+            <div id="value-07" class="val-body pl-[6.5rem] md:pl-[7.5rem] pr-6" aria-hidden="true"><p class="text-white/65 leading-relaxed pb-7">Using site feedback and project reviews to improve how we plan, coordinate and deliver the next job.</p></div>
           </li>
         </ul>
       </div>
@@ -379,7 +387,7 @@
   <section id="stats" class="bg-white border-b border-brand/10">
     <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-14 grid grid-cols-1 sm:grid-cols-3">
       <div class="py-14 md:py-20 sm:pr-6 border-b sm:border-b-0 sm:border-r border-brand/10">
-        <div class="text-6xl lg:text-7xl text-brand font-hero" style="font-weight: 600;"><span class="counter" data-target="10">10</span><span class="text-accent">+</span></div>
+        <div class="text-6xl lg:text-7xl text-brand font-hero" style="font-weight: 600;"><span class="counter" data-target="20">20</span><span class="text-accent">+</span></div>
         <div class="text-[11px] font-bold text-accent tracking-[0.3em] uppercase mt-3">Years GBA Experience</div>
       </div>
       <div class="py-14 md:py-20 sm:px-6 border-b sm:border-b-0 sm:border-r border-brand/10">
@@ -426,7 +434,7 @@
           </div>
         </article>
         <article id="j-2021" class="group md:mt-32">
-          <div class="overflow-hidden rounded-sm aspect-[4/3]"><img src="images/people/plant.png?v=3" alt="2021 Crown Sky Established" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
+          <div class="overflow-hidden rounded-sm aspect-[4/3]"><img src="Anniversary%20Celebrations/New%20office%20opening%20%282%29/%282025-11-27%29CrownSky_GrandOpening_357%20%281%29.jpg" alt="Crown Sky office grand opening, November 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
           <div class="relative mt-8 pt-8 border-t-2 border-accent">
             <span class="absolute -top-[9px] left-0 w-4 h-4 rounded-full bg-accent ring-8 ring-accent/15"></span>
             <div class="text-6xl md:text-7xl text-accent leading-none font-hero" style="font-weight: 600;">2021</div>
@@ -461,11 +469,11 @@
         <div class="flex items-center justify-between gap-6 pt-6 border-b border-brand/15 pb-6"><h3 class="text-2xl text-brand">Precision Installation</h3><span class="text-accent font-bold text-sm">01</span></div>
       </article>
       <article class="gal-card snap-start shrink-0 w-[86%] md:w-[58%] group">
-        <div class="overflow-hidden rounded-sm aspect-[16/9]"><img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_80edbe4308_c54f225a9f73b2aa.png" alt="Smart systems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
+        <div class="overflow-hidden rounded-sm aspect-[16/9]"><img src="images/approved/cctv-engineer.jpg" alt="Smart Systems — Crown Sky CCTV installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
         <div class="flex items-center justify-between gap-6 pt-6 border-b border-brand/15 pb-6"><h3 class="text-2xl text-brand">Smart Systems</h3><span class="text-accent font-bold text-sm">02</span></div>
       </article>
       <article class="gal-card snap-start shrink-0 w-[86%] md:w-[58%] group">
-        <div class="overflow-hidden rounded-sm aspect-[16/9]"><img src="images/people/aa.png?v=3" alt="Structural rigor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
+        <div class="overflow-hidden rounded-sm aspect-[16/9]"><img src="images/approved/structural-scaffolding.jpg" alt="Structural Rigor — metal scaffolding at Ho Man Tin Station" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"></div>
         <div class="flex items-center justify-between gap-6 pt-6 border-b border-brand/15 pb-6"><h3 class="text-2xl text-brand">Structural Rigor</h3><span class="text-accent font-bold text-sm">03</span></div>
       </article>
       <div class="shrink-0 w-2 md:w-8"></div>
@@ -647,7 +655,7 @@
     // Regional hubs
     const hubs = [
       { tag: 'Head Office · Est. 2021', name: 'Hong Kong', desc: 'Main operations & project management hub.' },
-      { tag: 'Fabrication · Est. 2014', name: 'Zhuhai', desc: 'Specialized MVAC fabrication and logistics center.' },
+      { tag: 'Fabrication · Est. 2014', name: 'Zhuhai', desc: 'Specialized HVAC fabrication and logistics center.' },
       { tag: 'Regional Support · Est. 2006', name: 'Macau', desc: 'Legacy operations and integrated resort solutions.' }
     ];
     const hubBtns = document.querySelectorAll('.hub-btn');
@@ -665,7 +673,15 @@
 
     // Values accordion
     const valRows = document.querySelectorAll('.val-row');
-    valRows.forEach(r => r.addEventListener('click', () => valRows.forEach(o => o.classList.toggle('active', o === r))));
+    valRows.forEach(r => r.addEventListener('click', () => valRows.forEach(o => {
+      const active = o === r;
+      o.classList.toggle('active', active);
+      const control = o.querySelector('[aria-controls]');
+      if (control) {
+        control.setAttribute('aria-expanded', active);
+        document.getElementById(control.getAttribute('aria-controls')).setAttribute('aria-hidden', !active);
+      }
+    })));
 
     // Gallery slider
     const gal = document.getElementById('gal-scroller');

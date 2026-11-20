@@ -8,8 +8,8 @@
       </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="site-content.css?v=20261111">
-  <script src="site-content.js?v=20261111"></script>
+  <link rel="stylesheet" href="site-content.css?v=20261120-3">
+  <script src="site-content.js?v=20261120-3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -188,7 +188,7 @@
           <h1 class="rise rise-2 text-5xl sm:text-6xl md:text-7xl xl:text-[5.75rem] text-white">Let's talk about your <span class="text-accent">next</span> project.</h1>
         </div>
         <div class="lg:col-span-4 rise rise-3">
-          <p class="text-white/75 text-base md:text-lg leading-relaxed max-w-md">From MVAC maintenance to A&amp;A works and smart-site solutions — our engineers are ready to help with design, supply, installation and care.</p>
+          <p class="text-white/75 text-base md:text-lg leading-relaxed max-w-md">From HVAC maintenance to A&amp;A works and smart-site solutions — our engineers are ready to help with design, supply, installation and care.</p>
           <div class="flex flex-wrap gap-2 mt-6">
             <span class="inline-flex items-center gap-2 px-3 py-2 bg-white/10 border border-white/15 rounded-sm text-xs font-bold text-white"><i class="fa-regular fa-clock text-accent"></i>Reply within 1 working day</span>
             <span class="inline-flex items-center gap-2 px-3 py-2 bg-white/10 border border-white/15 rounded-sm text-xs font-bold text-white"><i class="fa-solid fa-language text-accent"></i>English · 粵語 · 普通話</span>
@@ -206,10 +206,10 @@
           <span class="w-11 h-11 rounded-sm bg-white/10 text-accent flex items-center justify-center shrink-0"><i class="fa-solid fa-envelope"></i></span>
           <span class="min-w-0"><span class="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">Email</span><span class="block text-lg text-white mt-0.5 truncate font-hero" style="font-weight: 600;">info@crownsky.hk</span></span>
         </a>
-        <a href="https://wa.me/85236190396" id="ch-wa" class="group flex items-center gap-4 bg-white/5 border border-white/15 rounded-sm px-5 py-4 hover:border-accent transition-colors">
-          <span class="w-11 h-11 rounded-sm bg-white/10 text-accent flex items-center justify-center text-lg shrink-0"><i class="fa-brands fa-whatsapp"></i></span>
-          <span><span class="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">WhatsApp</span><span class="block text-lg text-white mt-0.5 font-hero" style="font-weight: 600;">Message us</span></span>
-        </a>
+        <div id="ch-fax" class="flex items-center gap-4 bg-white/5 border border-white/15 rounded-sm px-5 py-4">
+          <span class="w-11 h-11 rounded-sm bg-white/10 text-accent flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-fax" aria-hidden="true"></i></span>
+          <span><span class="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">Fax</span><span class="block text-lg text-white mt-0.5 tabular-nums font-hero" style="font-weight: 600;">+852 3619 0395</span></span>
+        </div>
         <a href="#enquiry" id="ch-form" class="group flex items-center justify-between gap-3 bg-accent rounded-sm px-5 py-4 text-white hover:bg-white hover:text-brand transition-colors">
           <span><span class="block text-[10px] font-bold uppercase tracking-[0.25em] opacity-80">Online</span><span class="block text-lg mt-0.5 font-hero" style="font-weight: 600;">Send enquiry</span></span>
           <i class="fa-solid fa-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
@@ -238,14 +238,14 @@
       <div class="lg:col-span-8">
         <span class="inline-flex items-center gap-4 text-accent font-bold text-xs uppercase tracking-[0.3em] mb-6"><span class="w-8 h-px bg-accent"></span>Send an Enquiry</span>
         <h2 class="text-4xl md:text-6xl text-brand leading-[1.05]">Tell us what you need.</h2>
-        <p class="text-ink/65 text-lg leading-relaxed mt-6 max-w-2xl">Crown Sky is the Hong Kong arm of a GBA engineering group founded in 2006, delivering MEP, MVAC and A&amp;A works as a one-stop design, supply, installation and maintenance partner.</p>
+        <p class="text-ink/65 text-lg leading-relaxed mt-6 max-w-2xl">Crown Sky is the Hong Kong arm of a GBA engineering group founded in 2006, delivering MEP, HVAC and A&amp;A works as a one-stop design, supply, installation and maintenance partner.</p>
 
         <form id="contact-form" class="mt-12 pt-10 border-t border-brand/10 space-y-10" novalidate>
           <fieldset id="sec-type" class="scroll-mt-32">
             <legend class="flex items-center gap-4 mb-5"><span class="text-sm font-bold text-accent font-hero">01</span><span class="text-xl text-brand font-hero" style="font-weight: 600;">What's your enquiry about?</span></legend>
             <div class="flex flex-wrap gap-2">
               <label class="type"><input type="radio" name="type" value="MEP Engineering" class="sr-only" checked><span class="flex items-center gap-2 px-4 py-3 border border-brand/15 rounded-sm text-sm font-bold text-brand cursor-pointer transition-colors hover:border-accent"><i class="fa-solid fa-bolt text-accent"></i>MEP Engineering</span></label>
-              <label class="type"><input type="radio" name="type" value="MVAC Systems" class="sr-only"><span class="flex items-center gap-2 px-4 py-3 border border-brand/15 rounded-sm text-sm font-bold text-brand cursor-pointer transition-colors hover:border-accent"><i class="fa-solid fa-fan text-accent"></i>MVAC Systems</span></label>
+              <label class="type"><input type="radio" name="type" value="HVAC Systems" class="sr-only"><span class="flex items-center gap-2 px-4 py-3 border border-brand/15 rounded-sm text-sm font-bold text-brand cursor-pointer transition-colors hover:border-accent"><i class="fa-solid fa-fan text-accent"></i>HVAC Systems</span></label>
               <label class="type"><input type="radio" name="type" value="A&A Works" class="sr-only"><span class="flex items-center gap-2 px-4 py-3 border border-brand/15 rounded-sm text-sm font-bold text-brand cursor-pointer transition-colors hover:border-accent"><i class="fa-solid fa-trowel-bricks text-accent"></i>A&amp;A Works</span></label>
               <label class="type"><input type="radio" name="type" value="Maintenance" class="sr-only"><span class="flex items-center gap-2 px-4 py-3 border border-brand/15 rounded-sm text-sm font-bold text-brand cursor-pointer transition-colors hover:border-accent"><i class="fa-solid fa-screwdriver-wrench text-accent"></i>Maintenance</span></label>
               <label class="type"><input type="radio" name="type" value="Smart Site" class="sr-only"><span class="flex items-center gap-2 px-4 py-3 border border-brand/15 rounded-sm text-sm font-bold text-brand cursor-pointer transition-colors hover:border-accent"><i class="fa-solid fa-microchip text-accent"></i>Smart Site</span></label>
@@ -356,13 +356,17 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        <div class="lg:col-span-7 relative h-[460px] md:h-[560px] rounded-sm overflow-hidden">
-          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_47b993b506_8b34bf66feeb9aa7.png" alt="Stylised map of the Pearl River Delta" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-brand-dark/25"></div>
-          <button class="pin active" style="left:68%;top:30%" data-office="0" aria-label="Hong Kong office on map"></button>
-          <button class="pin" style="left:30%;top:62%" data-office="1" aria-label="Macau office on map"></button>
-          <button class="pin" style="left:22%;top:38%" data-office="2" aria-label="Zhuhai factory on map"></button>
-          <div id="office-detail" class="absolute left-4 right-4 bottom-4 md:left-auto md:right-6 md:bottom-6 md:w-[380px] bg-white rounded-sm shadow-2xl p-6 fade-in" aria-live="polite">
+        <div class="lg:col-span-7 flex flex-col min-h-[460px] md:min-h-[560px] rounded-sm overflow-hidden bg-brand-dark">
+          <div class="relative flex-1 min-h-[230px] md:min-h-[290px]">
+            <img src="images/approved/pearl-river-delta.jpg" alt="Pearl River Delta map covering Guangzhou, Zhuhai, Macau and Hong Kong" class="absolute inset-0 w-full h-full object-fill">
+            <div class="absolute right-2 top-2 bg-brand-dark/90 px-2 py-1 rounded-sm text-[10px] text-white">
+              &copy; <a href="https://www.openstreetmap.org/copyright" class="underline">OpenStreetMap contributors</a>
+            </div>
+            <button type="button" class="pin active" style="left:80.2%;top:69.1%" data-office="0" aria-label="Hong Kong office on map" aria-pressed="true"></button>
+            <button type="button" class="pin" style="left:34.7%;top:83.7%" data-office="1" aria-label="Macau office on map" aria-pressed="false"></button>
+            <button type="button" class="pin" style="left:11.2%;top:82.1%" data-office="2" aria-label="Zhuhai factory on map" aria-pressed="false"></button>
+          </div>
+          <div id="office-detail" class="m-4 md:m-6 md:ml-auto md:w-[380px] bg-white rounded-sm shadow-2xl p-6 fade-in" aria-live="polite">
             <p id="od-tag" class="text-[11px] font-bold uppercase tracking-[0.3em] text-accent">Head Office</p>
             <h3 id="od-name" class="text-2xl text-brand mt-1">Hong Kong</h3>
             <p id="od-addr" class="text-sm text-ink/70 mt-3 leading-relaxed">Flat 15-16, 10/F, Block B, Veristrong Industrial Centre, 34-36 Au Pui Wan Street, Fo Tan, N.T., Hong Kong</p>
@@ -417,7 +421,7 @@
       <div class="lg:col-span-8 border-t-2 border-brand">
         <div class="faq open border-b border-brand/10">
           <button class="w-full flex items-center gap-6 py-7 text-left" aria-expanded="true"><span class="text-sm font-bold text-accent w-6">01</span><span class="flex-1 text-xl md:text-2xl text-brand font-hero" style="font-weight: 600;">Do you take on small maintenance jobs?</span><span class="faq-icon w-11 h-11 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand"><i class="fa-solid fa-plus"></i></span></button>
-          <div class="faq-panel"><div><p class="pb-7 pl-12 text-ink/70 text-lg leading-relaxed max-w-2xl">Yes — from single-unit MVAC repairs to term maintenance contracts across multiple sites.</p></div></div>
+          <div class="faq-panel"><div><p class="pb-7 pl-12 text-ink/70 text-lg leading-relaxed max-w-2xl">Yes — from single-unit HVAC repairs to term maintenance contracts across multiple sites.</p></div></div>
         </div>
         <div class="faq border-b border-brand/10">
           <button class="w-full flex items-center gap-6 py-7 text-left" aria-expanded="false"><span class="text-sm font-bold text-accent w-6">02</span><span class="flex-1 text-xl md:text-2xl text-brand font-hero" style="font-weight: 600;">Which contract models do you offer?</span><span class="faq-icon w-11 h-11 shrink-0 rounded-full border border-brand/20 flex items-center justify-center text-brand"><i class="fa-solid fa-plus"></i></span></button>
@@ -618,7 +622,11 @@
     const detail = document.getElementById('office-detail');
     const setOffice = (i) => {
       const o = offices[i];
-      document.querySelectorAll('.pin').forEach(p => p.classList.toggle('active', +p.dataset.office === i));
+      document.querySelectorAll('.pin').forEach(p => {
+        const active = +p.dataset.office === i;
+        p.classList.toggle('active', active);
+        p.setAttribute('aria-pressed', active);
+      });
       document.querySelectorAll('.office-row').forEach(r => { const on = +r.dataset.office === i; r.classList.toggle('active', on); r.setAttribute('aria-selected', on); });
       document.getElementById('od-tag').textContent = o.tag;
       document.getElementById('od-name').textContent = o.name;

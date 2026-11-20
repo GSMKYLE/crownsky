@@ -55,20 +55,21 @@
     }
   }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
   const campaigns = [
-    ['caring-construction.jpg', 'Caring Organisation in Construction'],
+    ['Heart caring.png', 'Heart Caring Charter'],
     ['cpas.jpg', 'Construction Industry Integrity Charter 2.0'],
-    ['heart-caring.jpg', 'Heart Caring Company'],
+    ['harmony.jpg', 'Harmony@Workplace Organisation — 融合職場機構'],
     ['heart-caring-plus.jpg', 'Heart Caring Company Plus'],
     ['joyful.jpg', 'Joyful@Healthy Workplace'],
     ['outdoor-lighting.jpg', 'Energy Saving Charter on No Incandescent Light Bulbs'],
     ['energy-saving.jpg', 'Energy Saving Charter 2026'],
-    ['harmony.jpg', 'Harmony@Workplace Organisation'],
     ['mental-health.jpg', 'Mental Health Friendly Organisation'],
     ['connected.jpg', 'Connected@Workplace Organisation'],
-    ['racial-diversity.jpg', 'Racial Diversity and Inclusion in the Workplace']
+    ['racial-diversity.jpg', 'Racial Diversity and Inclusion in the Workplace'],
+    ['caring-construction.jpg', '建造業關愛機構 — Caring Organisation in Construction']
   ];
   document.addEventListener('DOMContentLoaded', () => {
     scan(document.documentElement);
+    document.getElementById('footer-caring-org')?.remove();
     const iso = document.getElementById('footer-iso');
     if (iso) {
       const section = document.createElement('section');
