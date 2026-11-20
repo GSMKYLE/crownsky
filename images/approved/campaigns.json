@@ -4,7 +4,7 @@
     "alt": "Heart Caring Charter"
   },
   {
-    "src": "images/approved/cpas.jpg",
+    "src": "images/approved/cpas-white.png",
     "alt": "Construction Industry Integrity Charter 2.0"
   },
   {
@@ -42,5 +42,9 @@
   {
     "src": "images/approved/caring-construction.jpg",
     "alt": "建造業關愛機構 — Caring Organisation in Construction"
+  },
+  {
+    "src": "images/approved/inclusive-organisation.jpg",
+    "alt": "共融機構 — Inclusive Organisation"
   }
 ]

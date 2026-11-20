@@ -56,7 +56,7 @@
   }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
   const campaigns = [
     ['Heart caring.png', 'Heart Caring Charter'],
-    ['cpas.jpg', 'Construction Industry Integrity Charter 2.0'],
+    ['cpas-white.png', 'Construction Industry Integrity Charter 2.0'],
     ['harmony.jpg', 'Harmony@Workplace Organisation — 融合職場機構'],
     ['heart-caring-plus.jpg', 'Heart Caring Company Plus'],
     ['joyful.jpg', 'Joyful@Healthy Workplace'],
@@ -65,7 +65,8 @@
     ['mental-health.jpg', 'Mental Health Friendly Organisation'],
     ['connected.jpg', 'Connected@Workplace Organisation'],
     ['racial-diversity.jpg', 'Racial Diversity and Inclusion in the Workplace'],
-    ['caring-construction.jpg', '建造業關愛機構 — Caring Organisation in Construction']
+    ['caring-construction.jpg', '建造業關愛機構 — Caring Organisation in Construction'],
+    ['inclusive-organisation.jpg', '共融機構 — Inclusive Organisation']
   ];
   document.addEventListener('DOMContentLoaded', () => {
     scan(document.documentElement);
